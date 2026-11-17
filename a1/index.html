@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 /* Layout: notebook — sticky chapter index on the left, one chapter at a time on the right; highlighter-yellow marks key forms; der/die/das colour-coded */
 :root{
@@ -215,6 +215,41 @@ button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(
 }
 @media (max-width:480px){ .prog span.lbl{display:none} .brand .full{display:none} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Clean & Focus theme: soft off-white, one sans family, calm green accent, minimal ornament ===== */
+:root{--bg:#FAF9F6;--surface:#FFFFFF;--ink:#1B1B1B;--muted:#55575C;--line:#E7E5E0;--soft:#F2F0EB;
+ --mark:#E3F0EA;--mark-ink:#1B1B1B;--btn:#1F6F5C;--btn-ink:#FFFFFF;--accent:#1F6F5C;
+ --f-display:"Inter","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+ --f-body:"Inter","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+ --f-mono:"Inter","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16171A;--surface:#1D1F23;--ink:#ECECEA;--muted:#A6A9B0;--line:#2D3036;--soft:#23262B;--mark:#1D3A32;--mark-ink:#ECECEA;--btn:#62C4A8;--btn-ink:#0F231E;--accent:#62C4A8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16171A;--surface:#1D1F23;--ink:#ECECEA;--muted:#A6A9B0;--line:#2D3036;--soft:#23262B;--mark:#1D3A32;--mark-ink:#ECECEA;--btn:#62C4A8;--btn-ink:#0F231E;--accent:#62C4A8;color-scheme:dark}
+body{font-size:17px;line-height:1.85}
+.chap{max-width:720px}
+h2{font-weight:700;letter-spacing:-.02em}
+.de-sub{font-size:1rem}
+.lead{font-size:1.1rem;line-height:1.9}
+h4{font-size:1.2rem;font-weight:600;margin:48px 0 12px}
+h4::before{display:none}
+mark,.hl{background:none;border-bottom:2px solid var(--accent);padding:0 1px}
+.eyebrow,.toc h3,.toc .group,th,.h4de,.qtag,.quiz-head .best,.prog,.toc .num,.toc .badge,.q .qt::before,.d,.k,code{letter-spacing:.02em;text-transform:none}
+.eyebrow{color:var(--accent);font-weight:600}
+.brand{font-weight:700}
+.brand .lvl{background:var(--accent);color:var(--btn-ink)}
+.toc a{padding:8px 10px}
+.toc a.on{background:var(--soft);color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
+.toc a.on .num,.toc a.on .sub{color:var(--muted);opacity:1}
+.toc a.on .badge{border:0}
+.tip{background:var(--soft);border:0;border-left:3px solid var(--accent);border-radius:6px}
+.rule div,.vc,.dlg,.read,.quiz,.tbl{box-shadow:none}
+.jump{background:transparent;color:var(--accent);border-color:var(--accent)}
+.seg button.on{background:var(--accent);color:var(--btn-ink)}
+.dl .bub{border-radius:10px}
+.dl li.s1 .bub{background:var(--mark)}
+.opt,.fill input,.chipw,.mt select{border-radius:10px}
+.ex .de,.rde{font-weight:500}
+.rde{font-size:1.12rem}
+.ttsnote{border-left-color:var(--accent)}
 </style>
 
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>

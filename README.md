@@ -1,4 +1,4 @@
-# Deutsch 學習站
+# Deutsch lernen
 
 依 CEFR 等級整理的德語教學手冊，以 GitHub Pages 發布：<https://kaito253533.github.io/german/>
 

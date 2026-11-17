@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="德語 A1 教學手冊：20 章文法、單字、情境對話、短文閱讀與測驗。">
+<title>德語 A1 教學手冊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: notebook — sticky chapter index on the left, one chapter at a time on the right; highlighter-yellow marks key forms; der/die/das colour-coded */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#18202E; --muted:#596377; --line:#DCE1E9; --soft:#EBEEF3;
+  --mark:#FFE14D; --mark-ink:#18202E;
+  --btn:#18202E; --btn-ink:#FFFFFF;
+  --m:#1F63C6; --m-bg:#E4EEFC; --f:#C2334D; --f-bg:#FBE6EA; --n:#1E8A4C; --n-bg:#E2F4EA; --pl:#A86208; --pl-bg:#FCEFD9;
+  --ok:#1E8A4C; --ok-bg:#E2F4EA; --bad:#C2334D; --bad-bg:#FBE6EA;
+  --f-display:"Bricolage Grotesque","Noto Sans TC",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11151C; --surface:#191E28; --ink:#E7EAF0; --muted:#9BA4B6; --line:#2B3241; --soft:#222937;
+  --mark:#6B5A00; --mark-ink:#FFF4B8;
+  --btn:#E7EAF0; --btn-ink:#11151C;
+  --m:#7FB0FF; --m-bg:#1C2B45; --f:#FF8DA1; --f-bg:#3E1E27; --n:#6FD69B; --n-bg:#183526; --pl:#F2B45C; --pl-bg:#3A2A12;
+  --ok:#6FD69B; --ok-bg:#183526; --bad:#FF8DA1; --bad-bg:#3E1E27; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#11151C; --surface:#191E28; --ink:#E7EAF0; --muted:#9BA4B6; --line:#2B3241; --soft:#222937;
+  --mark:#6B5A00; --mark-ink:#FFF4B8;
+  --btn:#E7EAF0; --btn-ink:#11151C;
+  --m:#7FB0FF; --m-bg:#1C2B45; --f:#FF8DA1; --f-bg:#3E1E27; --n:#6FD69B; --n-bg:#183526; --pl:#F2B45C; --pl-bg:#3A2A12;
+  --ok:#6FD69B; --ok-bg:#183526; --bad:#FF8DA1; --bad-bg:#3E1E27; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;
+  display:flex;align-items:center;gap:14px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em;display:flex;align-items:baseline;gap:8px}
+.brand .lvl{font-family:var(--f-mono);font-size:.75rem;font-weight:600;background:var(--mark);color:var(--mark-ink);padding:1px 7px;border-radius:4px}
+.top .spacer{flex:1}
+.prog{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.prog .bar{width:120px;height:6px;background:var(--soft);border-radius:99px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.tocbtn{display:none;font:inherit;font-size:.9rem;font-weight:500;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+
+.wrap{display:grid;grid-template-columns:300px minmax(0,1fr);max-width:1240px;margin:0 auto}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 53px);align-self:start;height:calc(100vh - 53px - env(safe-area-inset-top,0px));overflow-y:auto;
+  border-right:1px solid var(--line);padding:20px 14px 40px max(16px,env(safe-area-inset-left,0px))}
+.toc h3{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:6px 8px 10px;font-weight:600}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc a{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:8px;align-items:center;padding:7px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.92rem;line-height:1.35}
+.toc a:hover{background:var(--soft)}
+.toc a.on{background:var(--ink);color:var(--surface)}
+.toc a.on .num,.toc a.on .sub{color:var(--surface);opacity:.75}
+.toc .num{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.toc .sub{display:block;font-size:.74rem;color:var(--muted);font-family:var(--f-display)}
+.toc .badge{font-family:var(--f-mono);font-size:.7rem;padding:1px 6px;border-radius:99px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.toc .badge.full{background:var(--ok-bg);color:var(--ok)}
+.toc .badge.mid{background:var(--pl-bg);color:var(--pl)}
+.toc a.on .badge{background:transparent;border:1px solid currentColor}
+.toc .group{margin:16px 8px 6px;font-size:.72rem;color:var(--muted);font-family:var(--f-mono);letter-spacing:.08em}
+
+main{min-width:0;padding-block:28px 80px;padding-left:clamp(16px,4vw,48px);padding-right:max(16px,env(safe-area-inset-right,0px))}
+.chap{max-width:780px}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h2{font-family:var(--f-display);font-weight:800;font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.de-sub{font-family:var(--f-display);font-size:1.05rem;color:var(--muted);margin:4px 0 14px}
+.lead{font-size:1.05rem;color:var(--ink);max-width:65ch;margin:0 0 8px}
+h4{font-family:var(--f-display);font-size:1.15rem;margin:34px 0 10px;display:flex;align-items:center;gap:10px}
+h4::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--mark);flex:none}
+p{max-width:68ch;margin:0 0 10px}
+mark,.hl{background:linear-gradient(transparent 45%,var(--mark) 45%);color:inherit;padding:0 2px}
+code,.k{font-family:var(--f-mono);font-size:.9em}
+.k{font-weight:600}
+
+.tbl{overflow-x:auto;margin:8px 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--soft);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.w{white-space:normal}
+.d{font-family:var(--f-mono);font-weight:600}
+.m{color:var(--m)} .f{color:var(--f)} .n{color:var(--n)} .pl{color:var(--pl)}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:.82rem;font-weight:600;padding:0 7px;border-radius:5px}
+.chip.m{background:var(--m-bg)} .chip.f{background:var(--f-bg)} .chip.n{background:var(--n-bg)} .chip.pl{background:var(--pl-bg)}
+
+.ex{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+.ex li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.ex .de{font-family:var(--f-display);font-size:1.08rem;font-weight:500;grid-column:2}
+.ex .zh{color:var(--muted);font-size:.93rem;grid-column:2}
+.say{grid-row:1/span 2;grid-column:1;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;padding:0;margin-top:2px}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{width:15px;height:15px}
+
+.tip{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--mark);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.95rem}
+.tip b{font-family:var(--f-display)}
+.tip p:last-child{margin-bottom:0}
+.rule{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0 14px}
+.rule div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.93rem;min-width:0}
+.rule div b{display:block;font-family:var(--f-display);font-size:1rem;margin-bottom:2px}
+
+/* quiz */
+.quiz{margin-top:44px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px clamp(16px,3vw,28px)}
+.quiz-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.quiz-head h4{margin:0}
+.quiz-head .best{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.qs{list-style:none;padding:0;margin:0;counter-reset:q}
+.q{padding:16px 0;border-bottom:1px dashed var(--line);counter-increment:q}
+.q:last-child{border-bottom:0}
+.q .qt{font-family:var(--f-display);font-size:1.05rem;font-weight:500;margin-bottom:10px;display:flex;gap:10px}
+.q .qt::before{content:counter(q);font-family:var(--f-mono);font-size:.8rem;color:var(--muted);padding-top:3px;min-width:16px}
+.q .qh{color:var(--muted);font-size:.88rem;font-family:var(--f-body)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:26px}
+.opt{font:inherit;font-family:var(--f-display);font-size:.98rem;padding:7px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.fill{display:flex;gap:8px;flex-wrap:wrap;padding-left:26px}
+.fill input{font:inherit;font-family:var(--f-display);font-size:1rem;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0;width:220px;max-width:100%}
+.fill input:focus{outline:2px solid var(--ink);outline-offset:1px}
+.fill input.right{border-color:var(--ok);background:var(--ok-bg)}
+.fill input.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.btn{font:inherit;font-size:.92rem;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:disabled{opacity:.4;cursor:default}
+.fb{padding-left:26px;margin-top:8px;font-size:.9rem;display:none}
+.fb.show{display:block}
+.fb .tag{font-family:var(--f-mono);font-weight:600;margin-right:6px}
+.fb.ok .tag{color:var(--ok)} .fb.no .tag{color:var(--bad)}
+.result{display:none;margin-top:16px;padding:16px;border-radius:10px;background:var(--soft);align-items:center;gap:16px;flex-wrap:wrap}
+.result.show{display:flex}
+.result .score{font-family:var(--f-display);font-weight:800;font-size:2rem;font-variant-numeric:tabular-nums}
+.result .msg{flex:1;min-width:180px;font-size:.95rem}
+button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ttsnote{position:fixed;z-index:40;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--mark);border-radius:12px;padding:14px 16px;box-shadow:0 8px 30px rgba(0,0,0,.18);display:flex;gap:12px;align-items:flex-start;font-size:.9rem}
+.ttsnote ul{margin:6px 0;padding-left:18px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:.82rem;padding:4px 10px;border:0;background:var(--surface);color:var(--muted);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--mark);color:var(--mark-ink);font-weight:600}
+.vnote{font-size:.85rem;color:var(--muted)}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:6px 0 10px}
+.vc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.vw{font-family:var(--f-display);font-weight:700;font-size:1.02rem;overflow-wrap:anywhere}
+.vz{font-size:.9rem}
+.vex{display:grid;grid-template-columns:26px minmax(0,1fr);gap:0 8px;margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-size:.86rem}
+.vex .say{width:24px;height:24px;margin-top:1px}
+.vex .say svg{width:12px;height:12px}
+.vde{font-family:var(--f-display);grid-column:2}
+.vzh{color:var(--muted);grid-column:2}
+.h4de{font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.btn.sm{font-size:.82rem;padding:4px 12px}
+.dlg,.read{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);margin:8px 0 10px}
+.dhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:12px}
+.dhead b{font-family:var(--f-display);font-size:1.1rem}
+.dhead .dzh{color:var(--muted);font-size:.9rem}
+.dbtns{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.dl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.dl li{display:grid;grid-template-columns:30px 96px minmax(0,1fr);gap:4px 10px;align-items:start}
+.dl .say{grid-row:auto;margin-top:6px}
+.dl .who{font-family:var(--f-mono);font-size:.78rem;font-weight:600;color:var(--muted);padding-top:9px;overflow-wrap:anywhere}
+.dl .bub{background:var(--bg);border:1px solid var(--line);border-radius:4px 12px 12px 12px;padding:8px 12px;min-width:0}
+.dl li.s1 .bub{background:var(--soft)}
+.dl li.s1 .who{color:var(--ink)}
+.dl .de{display:block;font-family:var(--f-display);font-size:1.04rem;font-weight:500}
+.dl .zh{display:block;color:var(--muted);font-size:.9rem}
+.dl.hidezh .zh{display:none}
+.rde{font-family:var(--f-display);font-size:1.1rem;line-height:1.85;margin:0 0 10px;max-width:62ch}
+.rzh{color:var(--muted);font-size:.95rem;border-top:1px dashed var(--line);padding-top:10px}
+.rnote{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+.qtag{display:inline-block;font-family:var(--f-mono);font-size:.7rem;font-weight:600;padding:1px 7px;border-radius:5px;background:var(--soft);color:var(--muted);margin-left:6px;vertical-align:2px;white-space:nowrap}
+.ord,.mt{padding-left:26px;display:flex;flex-direction:column;gap:10px}
+.ord .line{min-height:46px;border:1px dashed var(--line);border-radius:10px;padding:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:var(--bg)}
+.ord .line:empty::before{content:"點下方的字，依序組成句子";color:var(--muted);font-size:.88rem;padding-left:6px}
+.ord .line.right{border-color:var(--ok);background:var(--ok-bg)}
+.ord .line.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.ord .bank{display:flex;flex-wrap:wrap;gap:6px}
+.chipw{font:inherit;font-family:var(--f-display);font-size:.98rem;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chipw:hover:not(:disabled){border-color:var(--ink)}
+.chipw:disabled{cursor:default}
+.ctr{display:flex;gap:8px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:10px;align-items:center;max-width:520px}
+.ml{font-family:var(--f-display);font-weight:500}
+.mt select{font:inherit;font-size:.95rem;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0;width:100%}
+.mt select.right{border-color:var(--ok);background:var(--ok-bg)}
+.mt select.wrong{border-color:var(--bad);background:var(--bad-bg)}
+@media (max-width:560px){ .dl li{grid-template-columns:30px minmax(0,1fr)} .dl .who{grid-column:2;padding-top:0} .dl .bub{grid-column:2} .dl .say{grid-row:1/span 2} }
+
+.jump{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.9rem;font-weight:500;margin:0 0 16px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--mark);color:var(--mark-ink);cursor:pointer}
+.jump b{font-family:var(--f-mono);font-size:.8rem}
+.jump:hover{border-color:var(--ink)}
+.quiz{scroll-margin-top:70px}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
+.pager a{display:flex;flex-direction:column;padding:12px 16px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--surface);min-width:0;max-width:48%}
+.pager a:hover{border-color:var(--ink)}
+.pager a small{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);letter-spacing:.08em}
+.pager a.next{margin-left:auto;text-align:right}
+.src{font-size:.82rem;color:var(--muted);margin-top:40px;max-width:68ch}
+.src a{color:var(--muted)}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .tocbtn{display:inline-block}
+  .prog .bar{width:70px}
+  nav.toc{display:none;position:fixed;z-index:25;inset:calc(env(safe-area-inset-top,0px) + 53px) 0 0 0;height:auto;background:var(--surface);border-right:0;padding:16px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+  nav.toc.open{display:block}
+  main{padding-left:max(16px,env(safe-area-inset-left,0px))}
+  .pager a{max-width:100%}
+}
+@media (max-width:480px){ .prog span.lbl{display:none} .brand .full{display:none} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="top">
+  <button class="tocbtn" id="tocbtn" aria-expanded="false" aria-controls="toc">目錄</button>
+  <div class="brand"><a href="../" style="color:inherit;text-decoration:none" title="回到德語首頁">Deutsch</a><span class="lvl">A1</span><span class="full">教學手冊</span></div>
+  <div class="spacer"></div>
+  <div class="prog" title="已通過測驗的章節（≥80%）"><span class="lbl">已掌握</span><div class="bar"><i id="pbar"></i></div><span id="ptxt">0/20</span></div>
+</header>
+
+<div class="ttsnote" id="ttsnote" role="status" hidden>
+  <div><b>你的裝置沒有德語語音，所以發音會怪怪的。</b>解決方法（任選一）：
+  <ul><li>用 <b>Chrome 瀏覽器</b>開啟這個頁面（內建 Google Deutsch 語音）。</li>
+  <li><b>Windows</b>：設定 → 時間與語言 → 語音 → 新增語音 → Deutsch (Deutschland)，裝好後重新整理頁面。</li>
+  <li><b>Mac / iPhone</b>：系統設定 → 輔助使用 → 語音內容 → 系統語音 → 管理語音，下載德語（如 Anna）。</li></ul>
+  在那之前會先用英語語音朗讀。</div>
+  <button type="button" class="btn ghost sm" onclick="this.parentNode.hidden=true">知道了</button>
+</div>
+
+<div class="wrap">
+<nav class="toc" id="toc" aria-label="章節目錄"></nav>
+<main id="main">
+
+<!-- ================= K1 ================= -->
+<section class="chap" id="k1" data-title="人稱代名詞與 sein" data-de="Personalpronomen & sein">
+<p class="eyebrow">Kapitel 1</p>
+<h2>人稱代名詞與動詞 sein</h2>
+<p class="de-sub">Personalpronomen und das Verb „sein"</p>
+<p class="lead">德語的動詞會隨著「誰在做」而變化。第一步先認識人稱代名詞，並學會最常用的動詞 <span class="k">sein</span>（是）。自我介紹、說國籍、說職業都靠它。</p>
+
+<h4>人稱代名詞與 sein 的變化</h4>
+<div class="tbl"><table>
+<tr><th>人稱</th><th>代名詞</th><th>中文</th><th>sein</th></tr>
+<tr><td>第一人稱單數</td><td class="d">ich</td><td>我</td><td class="d"><mark>bin</mark></td></tr>
+<tr><td>第二人稱單數（熟人）</td><td class="d">du</td><td>你</td><td class="d"><mark>bist</mark></td></tr>
+<tr><td>第三人稱單數</td><td class="d">er / sie / es</td><td>他／她／它</td><td class="d"><mark>ist</mark></td></tr>
+<tr><td>第一人稱複數</td><td class="d">wir</td><td>我們</td><td class="d"><mark>sind</mark></td></tr>
+<tr><td>第二人稱複數（熟人）</td><td class="d">ihr</td><td>你們</td><td class="d"><mark>seid</mark></td></tr>
+<tr><td>第三人稱複數</td><td class="d">sie</td><td>他們</td><td class="d"><mark>sind</mark></td></tr>
+<tr><td>敬稱（單複數同形）</td><td class="d">Sie</td><td>您／您們</td><td class="d"><mark>sind</mark></td></tr>
+</table></div>
+
+<div class="tip"><b>du 還是 Sie？</b><p>對朋友、家人、小孩、同學用 <span class="k">du</span>；對陌生人、長輩、店員、上司用 <span class="k">Sie</span>。敬稱 <span class="k">Sie</span> 永遠大寫，就算在句中也一樣；小寫的 <span class="k">sie</span> 是「她」或「他們」，要靠動詞判斷：sie <u>ist</u> = 她是，sie <u>sind</u> = 他們是。</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich bin Lexi.</span><span class="zh">我是 Lexi。</span></li>
+<li><span class="de">Bist du Studentin?</span><span class="zh">妳是（女）大學生嗎？</span></li>
+<li><span class="de">Er ist 30 Jahre alt.</span><span class="zh">他三十歲。</span></li>
+<li><span class="de">Wir sind aus Taiwan.</span><span class="zh">我們來自台灣。</span></li>
+<li><span class="de">Ihr seid sehr nett.</span><span class="zh">你們人很好。</span></li>
+<li><span class="de">Sind Sie Frau Müller?</span><span class="zh">您是穆勒女士嗎？</span></li>
+<li><span class="de">Das ist mein Freund Paul. Er ist Ingenieur.</span><span class="zh">這是我的朋友保羅。他是工程師。</span></li>
+</ul>
+<div class="tip"><b>說職業不加冠詞</b><p>德語說「我是老師」時不加 ein：<span class="k">Ich bin Lehrer.</span> 女性通常加 <span class="k">-in</span>：Lehrerin、Ingenieurin、Studentin。</p></div>
+<div class="quiz" data-quiz="k1"></div>
+</section>
+
+<!-- ================= K2 ================= -->
+<section class="chap" id="k2" data-title="規則動詞現在式" data-de="Präsens: regelmäßige Verben" hidden>
+<p class="eyebrow">Kapitel 2</p>
+<h2>規則動詞的現在式</h2>
+<p class="de-sub">Präsens – regelmäßige Verben</p>
+<p class="lead">德語動詞原形大多以 <span class="k">-en</span> 結尾。去掉 -en 得到「字幹」，再依人稱加上詞尾。這套詞尾是整個 A1 最重要的基本功。</p>
+
+<h4>詞尾規則：字幹 + 詞尾</h4>
+<div class="tbl"><table>
+<tr><th>人稱</th><th>詞尾</th><th>wohnen 住</th><th>lernen 學</th><th>arbeiten 工作</th><th>heißen 叫做</th></tr>
+<tr><td class="d">ich</td><td class="d">-e</td><td>wohn<mark>e</mark></td><td>lern<mark>e</mark></td><td>arbeit<mark>e</mark></td><td>heiß<mark>e</mark></td></tr>
+<tr><td class="d">du</td><td class="d">-st</td><td>wohn<mark>st</mark></td><td>lern<mark>st</mark></td><td>arbeit<mark>est</mark></td><td>heiß<mark>t</mark></td></tr>
+<tr><td class="d">er/sie/es</td><td class="d">-t</td><td>wohn<mark>t</mark></td><td>lern<mark>t</mark></td><td>arbeit<mark>et</mark></td><td>heiß<mark>t</mark></td></tr>
+<tr><td class="d">wir</td><td class="d">-en</td><td>wohn<mark>en</mark></td><td>lern<mark>en</mark></td><td>arbeit<mark>en</mark></td><td>heiß<mark>en</mark></td></tr>
+<tr><td class="d">ihr</td><td class="d">-t</td><td>wohn<mark>t</mark></td><td>lern<mark>t</mark></td><td>arbeit<mark>et</mark></td><td>heiß<mark>t</mark></td></tr>
+<tr><td class="d">sie/Sie</td><td class="d">-en</td><td>wohn<mark>en</mark></td><td>lern<mark>en</mark></td><td>arbeit<mark>en</mark></td><td>heiß<mark>en</mark></td></tr>
+</table></div>
+
+<div class="rule">
+<div><b>字幹以 -t / -d 結尾</b>du、er、ihr 前面多加 <span class="k">e</span>，比較好發音：arbeiten → du arbeit<u>e</u>st；finden → er find<u>e</u>t。</div>
+<div><b>字幹以 -s / -ß / -z 結尾</b>du 只加 <span class="k">-t</span>：heißen → du heißt；tanzen → du tanzt。</div>
+<div><b>wir = sie = Sie = 原形</b>這三個人稱的動詞形式和原形一模一樣，最好記。</div>
+</div>
+
+<h4>常用規則動詞</h4>
+<p>kommen 來、wohnen 住、lernen 學、machen 做、spielen 玩、hören 聽、kaufen 買、kochen 煮、trinken 喝、gehen 走／去、fragen 問、antworten 回答、brauchen 需要、suchen 找、studieren 讀大學、reisen 旅行</p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich wohne in Taipeh.</span><span class="zh">我住在台北。</span></li>
+<li><span class="de">Wie heißt du?</span><span class="zh">你叫什麼名字？</span></li>
+<li><span class="de">Woher kommst du?</span><span class="zh">你從哪裡來？</span></li>
+<li><span class="de">Sie arbeitet in München.</span><span class="zh">她在慕尼黑工作。</span></li>
+<li><span class="de">Wir lernen jetzt Deutsch.</span><span class="zh">我們現在在學德語。</span></li>
+<li><span class="de">Was macht ihr am Wochenende?</span><span class="zh">你們週末做什麼？</span></li>
+<li><span class="de">Er kocht gern und hört Musik.</span><span class="zh">他喜歡煮飯，也聽音樂。</span></li>
+</ul>
+<div class="tip"><b>德語沒有進行式</b><p><span class="k">Ich lerne Deutsch.</span> 同時表示「我學德語」和「我正在學德語」。現在式也常用來說未來：<span class="k">Morgen fahre ich nach Berlin.</span>（我明天去柏林。）</p></div>
+<div class="quiz" data-quiz="k2"></div>
+</section>
+
+<!-- ================= K3 ================= -->
+<section class="chap" id="k3" data-title="語序與問句" data-de="Satzbau & Fragen" hidden>
+<p class="eyebrow">Kapitel 3</p>
+<h2>句子語序與問句</h2>
+<p class="de-sub">Satzbau: Aussagesatz, W-Frage, Ja/Nein-Frage</p>
+<p class="lead">德語語序最重要的一條規則：<mark>直述句中，變化後的動詞永遠在第二個位置</mark>。第一個位置可以放主詞，也可以放時間、地點，但動詞不能動。</p>
+
+<h4>直述句：動詞在第 2 位</h4>
+<div class="tbl"><table>
+<tr><th>位置 1</th><th>位置 2（動詞）</th><th>其餘</th></tr>
+<tr><td>Ich</td><td class="d"><mark>lerne</mark></td><td>heute Deutsch.</td></tr>
+<tr><td>Heute</td><td class="d"><mark>lerne</mark></td><td>ich Deutsch.</td></tr>
+<tr><td>Deutsch</td><td class="d"><mark>lerne</mark></td><td>ich heute.</td></tr>
+</table></div>
+<p>當主詞不在第 1 位時，主詞就跑到動詞後面（稱為「倒裝」）。</p>
+
+<h4>W-疑問句：疑問詞 + 動詞 + 主詞</h4>
+<div class="tbl"><table>
+<tr><th>疑問詞</th><th>中文</th><th>例句</th></tr>
+<tr><td class="d">Wer?</td><td>誰</td><td>Wer ist das?</td></tr>
+<tr><td class="d">Was?</td><td>什麼</td><td>Was machst du?</td></tr>
+<tr><td class="d">Wo?</td><td>在哪裡</td><td>Wo wohnen Sie?</td></tr>
+<tr><td class="d">Woher?</td><td>從哪裡</td><td>Woher kommst du?</td></tr>
+<tr><td class="d">Wohin?</td><td>去哪裡</td><td>Wohin fahrt ihr?</td></tr>
+<tr><td class="d">Wann?</td><td>什麼時候</td><td>Wann beginnt der Kurs?</td></tr>
+<tr><td class="d">Wie?</td><td>如何／怎樣</td><td>Wie geht es dir?</td></tr>
+<tr><td class="d">Wie viel? / Wie viele?</td><td>多少</td><td>Wie viel kostet das?</td></tr>
+<tr><td class="d">Wie alt?</td><td>幾歲</td><td>Wie alt bist du?</td></tr>
+<tr><td class="d">Warum?</td><td>為什麼</td><td>Warum lernst du Deutsch?</td></tr>
+<tr><td class="d">Welcher/Welche/Welches?</td><td>哪一個</td><td>Welche Sprache sprichst du?</td></tr>
+</table></div>
+
+<h4>是非問句：動詞放第 1 位</h4>
+<p>不用疑問詞時，把動詞直接放到句首：<span class="k">Du wohnst in Berlin.</span> → <span class="k"><mark>Wohnst</mark> du in Berlin?</span></p>
+<div class="rule">
+<div><b>Ja</b>肯定問句的肯定回答。<br>Kommst du? – Ja, ich komme.</div>
+<div><b>Nein</b>否定回答。<br>Kommst du? – Nein, ich komme nicht.</div>
+<div><b>Doch</b>回答「否定問句」但內容是肯定。<br>Kommst du nicht? – Doch, ich komme!</div>
+</div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Am Montag arbeite ich bis 18 Uhr.</span><span class="zh">星期一我工作到六點。</span></li>
+<li><span class="de">Wo ist der Bahnhof?</span><span class="zh">火車站在哪裡？</span></li>
+<li><span class="de">Sprechen Sie Englisch?</span><span class="zh">您會說英語嗎？</span></li>
+<li><span class="de">Hast du heute Zeit? – Ja, gern.</span><span class="zh">你今天有空嗎？――有，很樂意。</span></li>
+<li><span class="de">Bist du nicht müde? – Doch, sehr!</span><span class="zh">你不累嗎？――累啊，很累！</span></li>
+</ul>
+<div class="quiz" data-quiz="k3"></div>
+</section>
+
+<!-- ================= K4 ================= -->
+<section class="chap" id="k4" data-title="名詞性別與冠詞" data-de="Genus & Artikel" hidden>
+<p class="eyebrow">Kapitel 4</p>
+<h2>名詞的性別與冠詞</h2>
+<p class="de-sub">Nomen: Genus, bestimmter und unbestimmter Artikel</p>
+<p class="lead">每個德語名詞都有文法性別：陽性、陰性、中性。名詞第一個字母永遠大寫。學單字時請<mark>連冠詞一起背</mark>，例如不是背 Tisch，而是背 <span class="d m">der</span> Tisch。</p>
+
+<h4>定冠詞與不定冠詞（主格）</h4>
+<div class="tbl"><table>
+<tr><th></th><th>陽性 <span class="chip m">m</span></th><th>陰性 <span class="chip f">f</span></th><th>中性 <span class="chip n">n</span></th><th>複數 <span class="chip pl">pl</span></th></tr>
+<tr><td>定冠詞（the）</td><td class="d m">der Tisch</td><td class="d f">die Lampe</td><td class="d n">das Buch</td><td class="d pl">die Bücher</td></tr>
+<tr><td>不定冠詞（a）</td><td class="d m">ein Tisch</td><td class="d f">eine Lampe</td><td class="d n">ein Buch</td><td class="d pl">— Bücher</td></tr>
+<tr><td>代名詞</td><td class="d m">er</td><td class="d f">sie</td><td class="d n">es</td><td class="d pl">sie</td></tr>
+</table></div>
+<p>第一次提到、對方不知道是哪一個 → 用 <span class="k">ein/eine</span>；已知道、特定的那個 → 用 <span class="k">der/die/das</span>。</p>
+
+<h4>猜性別的小規則</h4>
+<div class="rule">
+<div><b class="m">通常是 der</b>星期、月份、季節（der Montag, der Mai, der Sommer）；男性人物（der Vater）；-er 結尾的人（der Lehrer）；-ismus</div>
+<div><b class="f">通常是 die</b>-ung, -heit, -keit, -schaft, -ion, -tät, -ie（die Zeitung, die Information, die Universität）；多數 -e 結尾（die Lampe）；女性 -in（die Lehrerin）</div>
+<div><b class="n">通常是 das</b>-chen, -lein 縮小詞（das Mädchen）；-um, -ment（das Museum, das Dokument）；動詞當名詞（das Essen）</div>
+</div>
+<div class="tip"><b>複合名詞看最後一個字</b><p>das Haus + die Tür → <span class="k f">die</span> Haustür。性別由最後一個字決定。</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Das ist ein Tisch. Der Tisch ist neu.</span><span class="zh">這是一張桌子。這張桌子是新的。</span></li>
+<li><span class="de">Das ist eine Lampe. Sie ist sehr schön.</span><span class="zh">這是一盞燈。它很漂亮。</span></li>
+<li><span class="de">Das ist ein Buch. Es ist interessant.</span><span class="zh">這是一本書。它很有趣。</span></li>
+<li><span class="de">Wie findest du die Wohnung? – Sie ist groß und hell.</span><span class="zh">你覺得這間公寓怎麼樣？――它又大又亮。</span></li>
+<li><span class="de">Das Mädchen heißt Anna.</span><span class="zh">那個女孩叫安娜。（Mädchen 是中性！）</span></li>
+</ul>
+<div class="quiz" data-quiz="k4"></div>
+</section>
+
+<!-- ================= K5 ================= -->
+<section class="chap" id="k5" data-title="名詞複數" data-de="Plural" hidden>
+<p class="eyebrow">Kapitel 5</p>
+<h2>名詞的複數</h2>
+<p class="de-sub">Der Plural</p>
+<p class="lead">好消息：複數的定冠詞<mark>一律是 die</mark>。壞消息：複數詞尾有好幾種，建議和單數一起背（字典常寫成 der Tisch, -e）。</p>
+
+<h4>六種常見複數形式</h4>
+<div class="tbl"><table>
+<tr><th>形式</th><th>單數</th><th>複數</th><th>常見於</th></tr>
+<tr><td class="d">-e / ¨-e</td><td>der Tisch<br>der Stuhl</td><td>die Tisch<mark>e</mark><br>die St<mark>ü</mark>hl<mark>e</mark></td><td class="w">多數陽性名詞</td></tr>
+<tr><td class="d">-(e)n</td><td>die Lampe<br>die Frau</td><td>die Lampe<mark>n</mark><br>die Frau<mark>en</mark></td><td class="w">多數陰性名詞</td></tr>
+<tr><td class="d">-er / ¨-er</td><td>das Kind<br>das Buch</td><td>die Kind<mark>er</mark><br>die B<mark>ü</mark>ch<mark>er</mark></td><td class="w">許多中性名詞</td></tr>
+<tr><td class="d">– / ¨</td><td>der Lehrer<br>der Apfel</td><td>die Lehrer<br>die <mark>Ä</mark>pfel</td><td class="w">-er, -el, -en 結尾</td></tr>
+<tr><td class="d">-s</td><td>das Auto<br>das Handy</td><td>die Auto<mark>s</mark><br>die Handy<mark>s</mark></td><td class="w">外來語、母音結尾</td></tr>
+<tr><td class="d">-nen</td><td>die Lehrerin</td><td>die Lehrerin<mark>nen</mark></td><td class="w">-in 結尾的女性</td></tr>
+</table></div>
+<p>不定冠詞沒有複數形：<span class="k">ein Apfel → Äpfel</span>（不加冠詞）。有些字只用複數，例如 <span class="k">die Eltern</span>（父母）、<span class="k">die Leute</span>（人們）。</p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich habe zwei Kinder.</span><span class="zh">我有兩個小孩。</span></li>
+<li><span class="de">Die Äpfel kosten zwei Euro.</span><span class="zh">這些蘋果兩歐元。</span></li>
+<li><span class="de">Im Kurs sind zwölf Studenten.</span><span class="zh">課堂上有十二個學生。</span></li>
+<li><span class="de">Meine Eltern wohnen in Tainan.</span><span class="zh">我父母住在台南。</span></li>
+<li><span class="de">Wir brauchen noch drei Stühle.</span><span class="zh">我們還需要三張椅子。</span></li>
+</ul>
+<div class="quiz" data-quiz="k5"></div>
+</section>
+
+<!-- ================= K6 ================= -->
+<section class="chap" id="k6" data-title="否定：nicht 與 kein" data-de="Negation" hidden>
+<p class="eyebrow">Kapitel 6</p>
+<h2>否定：nicht 與 kein</h2>
+<p class="de-sub">Negation mit „nicht" und „kein"</p>
+<p class="lead">德語有兩種否定詞。判斷方法很簡單：<mark>否定「名詞」而且原本用 ein 或沒有冠詞 → 用 kein</mark>；其他情況 → 用 nicht。</p>
+
+<div class="rule">
+<div><b>kein（沒有、不是一個）</b>取代 ein/eine 或無冠詞名詞。<br>Das ist ein Hund. → Das ist <u>kein</u> Hund.<br>Ich habe Zeit. → Ich habe <u>keine</u> Zeit.</div>
+<div><b>nicht（不）</b>否定動詞、形容詞、副詞、人名、有定冠詞的名詞。<br>Ich komme <u>nicht</u>.<br>Das ist <u>nicht</u> teuer.<br>Das ist <u>nicht</u> der Bus nach Bonn.</div>
+</div>
+
+<h4>kein 的變化（和 ein 一樣）</h4>
+<div class="tbl"><table>
+<tr><th></th><th>陽性</th><th>陰性</th><th>中性</th><th>複數</th></tr>
+<tr><td>主格 Nominativ</td><td class="d m">kein</td><td class="d f">keine</td><td class="d n">kein</td><td class="d pl">keine</td></tr>
+<tr><td>受格 Akkusativ</td><td class="d m"><mark>keinen</mark></td><td class="d f">keine</td><td class="d n">kein</td><td class="d pl">keine</td></tr>
+</table></div>
+
+<h4>nicht 的位置</h4>
+<p>否定整句時，<span class="k">nicht</span> 通常放在句尾（但在可分字首、不定式、形容詞之前）：<span class="k">Ich arbeite heute nicht.</span>｜<span class="k">Ich kann nicht schwimmen.</span>｜<span class="k">Der Kaffee ist nicht heiß.</span></p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich habe kein Auto.</span><span class="zh">我沒有車。</span></li>
+<li><span class="de">Er trinkt keinen Kaffee.</span><span class="zh">他不喝咖啡。</span></li>
+<li><span class="de">Wir haben keine Kinder.</span><span class="zh">我們沒有小孩。</span></li>
+<li><span class="de">Das Essen ist nicht gut.</span><span class="zh">這食物不好吃。</span></li>
+<li><span class="de">Sie wohnt nicht in Berlin.</span><span class="zh">她不住在柏林。</span></li>
+<li><span class="de">Das ist nicht mein Handy.</span><span class="zh">這不是我的手機。</span></li>
+</ul>
+<div class="quiz" data-quiz="k6"></div>
+</section>
+
+<!-- ================= K7 ================= -->
+<section class="chap" id="k7" data-title="haben 與不規則動詞" data-de="haben & Vokalwechsel" hidden>
+<p class="eyebrow">Kapitel 7</p>
+<h2>haben 與母音變化動詞</h2>
+<p class="de-sub">„haben" und unregelmäßige Verben mit Vokalwechsel</p>
+<p class="lead">有些常用動詞在 <span class="k">du</span> 和 <span class="k">er/sie/es</span> 時，字幹的母音會改變。其他人稱照常規則。另外 <span class="k">haben</span>（有）和 <span class="k">wissen</span>（知道）也要特別記。</p>
+
+<h4>haben、wissen、mögen</h4>
+<div class="tbl"><table>
+<tr><th>人稱</th><th>haben 有</th><th>wissen 知道</th><th>mögen 喜歡</th></tr>
+<tr><td class="d">ich</td><td>habe</td><td><mark>weiß</mark></td><td><mark>mag</mark></td></tr>
+<tr><td class="d">du</td><td><mark>hast</mark></td><td><mark>weißt</mark></td><td><mark>magst</mark></td></tr>
+<tr><td class="d">er/sie/es</td><td><mark>hat</mark></td><td><mark>weiß</mark></td><td><mark>mag</mark></td></tr>
+<tr><td class="d">wir</td><td>haben</td><td>wissen</td><td>mögen</td></tr>
+<tr><td class="d">ihr</td><td>habt</td><td>wisst</td><td>mögt</td></tr>
+<tr><td class="d">sie/Sie</td><td>haben</td><td>wissen</td><td>mögen</td></tr>
+</table></div>
+
+<h4>三種母音變化（只在 du / er）</h4>
+<div class="tbl"><table>
+<tr><th>變化</th><th>原形</th><th>ich</th><th>du</th><th>er/sie/es</th></tr>
+<tr><td class="d" rowspan="2">a → ä</td><td>fahren 搭乘、開車</td><td>fahre</td><td>f<mark>ä</mark>hrst</td><td>f<mark>ä</mark>hrt</td></tr>
+<tr><td>schlafen 睡覺</td><td>schlafe</td><td>schl<mark>ä</mark>fst</td><td>schl<mark>ä</mark>ft</td></tr>
+<tr><td class="d" rowspan="5">e → i</td><td>essen 吃</td><td>esse</td><td><mark>i</mark>sst</td><td><mark>i</mark>sst</td></tr>
+<tr><td>sprechen 說</td><td>spreche</td><td>spr<mark>i</mark>chst</td><td>spr<mark>i</mark>cht</td></tr>
+<tr><td>geben 給</td><td>gebe</td><td>g<mark>i</mark>bst</td><td>g<mark>i</mark>bt</td></tr>
+<tr><td>helfen 幫忙</td><td>helfe</td><td>h<mark>i</mark>lfst</td><td>h<mark>i</mark>lft</td></tr>
+<tr><td>nehmen 拿</td><td>nehme</td><td><mark>nimmst</mark></td><td><mark>nimmt</mark></td></tr>
+<tr><td class="d" rowspan="2">e → ie</td><td>sehen 看</td><td>sehe</td><td>s<mark>ie</mark>hst</td><td>s<mark>ie</mark>ht</td></tr>
+<tr><td>lesen 讀</td><td>lese</td><td>l<mark>ie</mark>st</td><td>l<mark>ie</mark>st</td></tr>
+</table></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Hast du Geschwister?</span><span class="zh">你有兄弟姊妹嗎？</span></li>
+<li><span class="de">Sie hat einen Hund.</span><span class="zh">她有一隻狗。</span></li>
+<li><span class="de">Fährst du mit dem Bus?</span><span class="zh">你搭公車嗎？</span></li>
+<li><span class="de">Er spricht Deutsch und Chinesisch.</span><span class="zh">他會說德語和中文。</span></li>
+<li><span class="de">Was isst du gern?</span><span class="zh">你喜歡吃什麼？</span></li>
+<li><span class="de">Ich nehme einen Tee, bitte.</span><span class="zh">我要一杯茶，謝謝。</span></li>
+<li><span class="de">Weißt du, wo die Post ist?</span><span class="zh">你知道郵局在哪裡嗎？</span></li>
+</ul>
+<div class="quiz" data-quiz="k7"></div>
+</section>
+
+<!-- ================= K8 ================= -->
+<section class="chap" id="k8" data-title="受格 Akkusativ" data-de="Akkusativ" hidden>
+<p class="eyebrow">Kapitel 8</p>
+<h2>受格 Akkusativ（第四格）</h2>
+<p class="de-sub">Der Akkusativ – das direkte Objekt</p>
+<p class="lead">句子的主詞用主格（Nominativ），動作的「直接受詞」用受格（Akkusativ）。好消息：<mark>只有陽性會變</mark>，陰性、中性、複數都和主格一樣。</p>
+
+<div class="tbl"><table>
+<tr><th></th><th>陽性</th><th>陰性</th><th>中性</th><th>複數</th></tr>
+<tr><td>主格 Nom.</td><td class="d m">der / ein / kein</td><td class="d f">die / eine / keine</td><td class="d n">das / ein / kein</td><td class="d pl">die / – / keine</td></tr>
+<tr><td>受格 Akk.</td><td class="d m"><mark>den / einen / keinen</mark></td><td class="d f">die / eine / keine</td><td class="d n">das / ein / kein</td><td class="d pl">die / – / keine</td></tr>
+</table></div>
+
+<h4>常接受格的動詞</h4>
+<p>haben 有、brauchen 需要、kaufen 買、sehen 看到、suchen 找、möchten 想要、essen 吃、trinken 喝、nehmen 拿、besuchen 拜訪、finden 覺得／找到、lieben 愛、bestellen 點餐、bezahlen 付錢</p>
+<p>問「人」用 <span class="k">Wen?</span>（誰，受格），問「物」用 <span class="k">Was?</span>。</p>
+
+<div class="tip"><b>es gibt + Akkusativ（有…）</b><p>表示「某處有某物」時用固定句型 <span class="k">es gibt</span>，後面接受格：<span class="k">In Taipeh gibt es einen Zoo.</span>（台北有一座動物園。）</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich kaufe einen Apfel.</span><span class="zh">我買一顆蘋果。</span></li>
+<li><span class="de">Siehst du den Mann dort?</span><span class="zh">你看到那邊那個男人嗎？</span></li>
+<li><span class="de">Wir brauchen eine Wohnung.</span><span class="zh">我們需要一間公寓。</span></li>
+<li><span class="de">Hast du einen Bruder?</span><span class="zh">你有哥哥／弟弟嗎？</span></li>
+<li><span class="de">Hier gibt es keinen Supermarkt.</span><span class="zh">這裡沒有超市。</span></li>
+<li><span class="de">Wen besuchst du am Sonntag?</span><span class="zh">你星期天要拜訪誰？</span></li>
+</ul>
+<div class="quiz" data-quiz="k8"></div>
+</section>
+
+<!-- ================= K9 ================= -->
+<section class="chap" id="k9" data-title="所有格冠詞" data-de="Possessivartikel" hidden>
+<p class="eyebrow">Kapitel 9</p>
+<h2>所有格冠詞 mein, dein…</h2>
+<p class="de-sub">Possessivartikel</p>
+<p class="lead">「我的、你的、他的」在德語裡是冠詞，詞尾變化<mark>和 ein/kein 完全一樣</mark>：陰性和複數加 -e，陽性受格加 -en。</p>
+
+<h4>每個人稱的所有格</h4>
+<div class="tbl"><table>
+<tr><th>人稱</th><th>所有格</th><th>中文</th></tr>
+<tr><td class="d">ich</td><td class="d">mein</td><td>我的</td></tr>
+<tr><td class="d">du</td><td class="d">dein</td><td>你的</td></tr>
+<tr><td class="d">er / es</td><td class="d">sein</td><td>他的／它的</td></tr>
+<tr><td class="d">sie</td><td class="d">ihr</td><td>她的</td></tr>
+<tr><td class="d">wir</td><td class="d">unser</td><td>我們的</td></tr>
+<tr><td class="d">ihr</td><td class="d">euer</td><td>你們的</td></tr>
+<tr><td class="d">sie（複數）</td><td class="d">ihr</td><td>他們的</td></tr>
+<tr><td class="d">Sie</td><td class="d">Ihr</td><td>您的</td></tr>
+</table></div>
+
+<h4>以 mein 為例的詞尾</h4>
+<div class="tbl"><table>
+<tr><th></th><th>陽性</th><th>陰性</th><th>中性</th><th>複數</th></tr>
+<tr><td>主格</td><td class="d m">mein Vater</td><td class="d f">mein<mark>e</mark> Mutter</td><td class="d n">mein Kind</td><td class="d pl">mein<mark>e</mark> Eltern</td></tr>
+<tr><td>受格</td><td class="d m">mein<mark>en</mark> Vater</td><td class="d f">mein<mark>e</mark> Mutter</td><td class="d n">mein Kind</td><td class="d pl">mein<mark>e</mark> Eltern</td></tr>
+</table></div>
+<div class="tip"><b>euer 加詞尾時會少一個 e</b><p>euer + e → <span class="k">eure</span>（eure Wohnung）；euer + en → <span class="k">euren</span>。</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Das ist meine Schwester Lina.</span><span class="zh">這是我的姊姊／妹妹 Lina。</span></li>
+<li><span class="de">Wie ist Ihr Name?</span><span class="zh">您貴姓大名？</span></li>
+<li><span class="de">Ich suche meinen Schlüssel.</span><span class="zh">我在找我的鑰匙。</span></li>
+<li><span class="de">Paul und sein Hund gehen spazieren.</span><span class="zh">保羅和他的狗去散步。</span></li>
+<li><span class="de">Anna besucht ihre Großeltern.</span><span class="zh">安娜去探望她的祖父母。</span></li>
+<li><span class="de">Unsere Wohnung ist klein, aber gemütlich.</span><span class="zh">我們的公寓很小，但很舒適。</span></li>
+</ul>
+<div class="quiz" data-quiz="k9"></div>
+</section>
+
+<!-- ================= K10 ================= -->
+<section class="chap" id="k10" data-title="數字、時間與時間介系詞" data-de="Zahlen, Uhrzeit, Zeitangaben" hidden>
+<p class="eyebrow">Kapitel 10</p>
+<h2>數字、時間與時間介系詞</h2>
+<p class="de-sub">Zahlen, Uhrzeit und temporale Präpositionen</p>
+<p class="lead">德語的二位數是<mark>先說個位數，再說十位數</mark>：21 = einundzwanzig（一和二十）。說時間有正式和口語兩種講法。</p>
+
+<h4>數字</h4>
+<div class="tbl"><table>
+<tr><th>數字</th><th>德語</th><th>數字</th><th>德語</th></tr>
+<tr><td>1–12</td><td class="w">eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf</td><td>13–19</td><td class="w">dreizehn, vierzehn, fünfzehn, <mark>sechzehn</mark>, <mark>siebzehn</mark>, achtzehn, neunzehn</td></tr>
+<tr><td>20–90</td><td class="w">zwanzig, <mark>dreißig</mark>, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig</td><td>21, 45, 99</td><td class="w">einundzwanzig, fünfundvierzig, neunundneunzig</td></tr>
+<tr><td>100</td><td>(ein)hundert</td><td>1000</td><td>(ein)tausend</td></tr>
+</table></div>
+
+<h4>說時間：Wie spät ist es? / Wie viel Uhr ist es?</h4>
+<div class="tbl"><table>
+<tr><th>時間</th><th>正式（廣播、時刻表）</th><th>口語</th></tr>
+<tr><td>8:00</td><td>acht Uhr</td><td>acht (Uhr)</td></tr>
+<tr><td>8:15</td><td>acht Uhr fünfzehn</td><td>Viertel nach acht</td></tr>
+<tr><td>8:30</td><td>acht Uhr dreißig</td><td><mark>halb neun</mark>（快到九點的一半）</td></tr>
+<tr><td>8:45</td><td>acht Uhr fünfundvierzig</td><td>Viertel vor neun</td></tr>
+<tr><td>20:10</td><td>zwanzig Uhr zehn</td><td>zehn nach acht</td></tr>
+</table></div>
+
+<h4>時間介系詞</h4>
+<div class="tbl"><table>
+<tr><th>介系詞</th><th>用於</th><th>例子</th></tr>
+<tr><td class="d">um</td><td>幾點鐘</td><td>um 8 Uhr, um halb drei</td></tr>
+<tr><td class="d">am</td><td>星期、日期、一天中的時段</td><td>am Montag, am Wochenende, am 3. Mai, am Morgen, am Abend</td></tr>
+<tr><td class="d">im</td><td>月份、季節</td><td>im Juli, im Winter</td></tr>
+<tr><td class="d">in der</td><td>夜晚</td><td>in der Nacht</td></tr>
+<tr><td class="d">von … bis</td><td>從…到…</td><td>von 9 bis 17 Uhr</td></tr>
+<tr><td class="d">ab</td><td>從…開始</td><td>ab Montag</td></tr>
+</table></div>
+
+<h4>序數與日期</h4>
+<p>1.–19. 加 <span class="k">-te</span>，20. 以上加 <span class="k">-ste</span>；例外：erste, dritte, siebte。說「在…號」時用 <span class="k">am …ten</span>：am ersten Mai、am dritten Juni、am zwanzigsten Juli。</p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Wie spät ist es? – Es ist halb drei.</span><span class="zh">現在幾點？――兩點半。</span></li>
+<li><span class="de">Der Kurs beginnt um neun Uhr.</span><span class="zh">課程九點開始。</span></li>
+<li><span class="de">Am Samstag gehe ich ins Kino.</span><span class="zh">星期六我去看電影。</span></li>
+<li><span class="de">Im August fahren wir nach Österreich.</span><span class="zh">八月我們要去奧地利。</span></li>
+<li><span class="de">Ich arbeite von Montag bis Freitag.</span><span class="zh">我從星期一工作到星期五。</span></li>
+<li><span class="de">Mein Geburtstag ist am zwölften Oktober.</span><span class="zh">我的生日是十月十二日。</span></li>
+</ul>
+<div class="quiz" data-quiz="k10"></div>
+</section>
+
+<!-- ================= K11 ================= -->
+<section class="chap" id="k11" data-title="可分動詞" data-de="Trennbare Verben" hidden>
+<p class="eyebrow">Kapitel 11</p>
+<h2>可分動詞</h2>
+<p class="de-sub">Trennbare Verben</p>
+<p class="lead">有些動詞前面有「字首」，在句子裡會被拆開：<mark>動詞本體在第 2 位，字首跑到句尾</mark>，形成像括號一樣的「句框」（Satzklammer）。</p>
+
+<div class="tbl"><table>
+<tr><th>位置 1</th><th>位置 2</th><th>中間</th><th>句尾</th></tr>
+<tr><td>Ich</td><td class="d"><mark>stehe</mark></td><td>um 7 Uhr</td><td class="d"><mark>auf</mark>.</td></tr>
+<tr><td>Wann</td><td class="d"><mark>kommst</mark></td><td>du</td><td class="d"><mark>an</mark>?</td></tr>
+<tr><td class="d"><mark>Kaufst</mark></td><td>du</td><td>heute</td><td class="d"><mark>ein</mark>?</td></tr>
+</table></div>
+
+<h4>常見可分字首與動詞（重音在字首）</h4>
+<div class="tbl"><table>
+<tr><th>字首</th><th>動詞</th><th>中文</th></tr>
+<tr><td class="d">an-</td><td>anrufen, ankommen, anfangen</td><td>打電話、抵達、開始</td></tr>
+<tr><td class="d">auf-</td><td>aufstehen, aufräumen, aufmachen</td><td>起床、整理、打開</td></tr>
+<tr><td class="d">aus-</td><td>aussehen, aussteigen, ausgehen</td><td>看起來、下車、出去玩</td></tr>
+<tr><td class="d">ein-</td><td>einkaufen, einsteigen, einladen</td><td>購物、上車、邀請</td></tr>
+<tr><td class="d">mit-</td><td>mitkommen, mitbringen</td><td>一起來、帶來</td></tr>
+<tr><td class="d">ab-</td><td>abfahren, abholen</td><td>出發、接（人）</td></tr>
+<tr><td class="d">zu- / zurück-</td><td>zumachen, zurückkommen</td><td>關上、回來</td></tr>
+<tr><td class="d">fern- / vor-</td><td>fernsehen, vorstellen</td><td>看電視、介紹</td></tr>
+</table></div>
+<div class="tip"><b>不可分字首</b><p><span class="k">be-, ver-, er-, ent-, emp-, ge-, zer-</span> 不會分開：Ich <u>besuche</u> meine Oma.｜Ich <u>verstehe</u> das nicht.</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich stehe jeden Tag um sechs Uhr auf.</span><span class="zh">我每天六點起床。</span></li>
+<li><span class="de">Der Zug fährt um 9:15 Uhr ab.</span><span class="zh">火車九點十五分出發。</span></li>
+<li><span class="de">Kommst du mit?</span><span class="zh">你要一起來嗎？</span></li>
+<li><span class="de">Ich rufe dich morgen an.</span><span class="zh">我明天打電話給你。</span></li>
+<li><span class="de">Am Abend sehen wir fern.</span><span class="zh">晚上我們看電視。</span></li>
+<li><span class="de">Der Film fängt um 20 Uhr an.</span><span class="zh">電影晚上八點開始。</span></li>
+</ul>
+<div class="quiz" data-quiz="k11"></div>
+</section>
+
+<!-- ================= K12 ================= -->
+<section class="chap" id="k12" data-title="情態動詞" data-de="Modalverben" hidden>
+<p class="eyebrow">Kapitel 12</p>
+<h2>情態動詞</h2>
+<p class="de-sub">Modalverben: können, müssen, wollen, dürfen, sollen, möchten</p>
+<p class="lead">情態動詞表達能力、義務、意願、許可。句型和可分動詞一樣是句框：<mark>情態動詞在第 2 位變化，主要動詞用原形放句尾</mark>。</p>
+
+<div class="tbl"><table>
+<tr><th></th><th>können<br>能、會</th><th>müssen<br>必須</th><th>wollen<br>想要（意志）</th><th>dürfen<br>可以（許可）</th><th>sollen<br>應該</th><th>möchten<br>想要（禮貌）</th></tr>
+<tr><td class="d">ich</td><td><mark>kann</mark></td><td><mark>muss</mark></td><td><mark>will</mark></td><td><mark>darf</mark></td><td><mark>soll</mark></td><td>möchte</td></tr>
+<tr><td class="d">du</td><td>kannst</td><td>musst</td><td>willst</td><td>darfst</td><td>sollst</td><td>möchtest</td></tr>
+<tr><td class="d">er/sie/es</td><td><mark>kann</mark></td><td><mark>muss</mark></td><td><mark>will</mark></td><td><mark>darf</mark></td><td><mark>soll</mark></td><td>möchte</td></tr>
+<tr><td class="d">wir</td><td>können</td><td>müssen</td><td>wollen</td><td>dürfen</td><td>sollen</td><td>möchten</td></tr>
+<tr><td class="d">ihr</td><td>könnt</td><td>müsst</td><td>wollt</td><td>dürft</td><td>sollt</td><td>möchtet</td></tr>
+<tr><td class="d">sie/Sie</td><td>können</td><td>müssen</td><td>wollen</td><td>dürfen</td><td>sollen</td><td>möchten</td></tr>
+</table></div>
+<div class="tip"><b>兩個重點</b><p>1）<span class="k">ich</span> 和 <span class="k">er/sie/es</span> 的形式相同，而且沒有 -t 詞尾。<br>2）單數時母音常改變（können → kann），複數恢復原形。</p></div>
+
+<h4>句框</h4>
+<div class="tbl"><table>
+<tr><th>位置 1</th><th>位置 2（情態動詞）</th><th>中間</th><th>句尾（原形）</th></tr>
+<tr><td>Ich</td><td class="d"><mark>kann</mark></td><td>gut</td><td class="d"><mark>schwimmen</mark>.</td></tr>
+<tr><td>Morgen</td><td class="d"><mark>muss</mark></td><td>ich früh</td><td class="d"><mark>aufstehen</mark>.</td></tr>
+<tr><td class="d"><mark>Darf</mark></td><td>ich hier</td><td></td><td class="d"><mark>parken</mark>?</td></tr>
+</table></div>
+
+<div class="tip"><b>man（人們、一般人）</b><p>表示規定或一般情況時常和情態動詞一起用，動詞用 er/sie/es 形式：<span class="k">Hier darf man nicht rauchen.</span>（這裡不准抽菸。）</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Kannst du mir helfen?</span><span class="zh">你可以幫我嗎？</span></li>
+<li><span class="de">Ich muss heute lange arbeiten.</span><span class="zh">我今天得工作到很晚。</span></li>
+<li><span class="de">Wir wollen im Sommer nach Spanien fliegen.</span><span class="zh">我們夏天想飛去西班牙。</span></li>
+<li><span class="de">Darf ich das Fenster aufmachen?</span><span class="zh">我可以開窗嗎？</span></li>
+<li><span class="de">Der Arzt sagt, ich soll viel Wasser trinken.</span><span class="zh">醫生說我應該多喝水。</span></li>
+<li><span class="de">Ich möchte einen Kaffee, bitte.</span><span class="zh">我想要一杯咖啡，麻煩了。</span></li>
+</ul>
+<div class="quiz" data-quiz="k12"></div>
+</section>
+
+<!-- ================= K13 ================= -->
+<section class="chap" id="k13" data-title="命令式" data-de="Imperativ" hidden>
+<p class="eyebrow">Kapitel 13</p>
+<h2>命令式</h2>
+<p class="de-sub">Der Imperativ</p>
+<p class="lead">請求、建議、指示時用命令式，動詞放句首。對象不同（du / ihr / Sie）形式也不同。加上 <span class="k">bitte</span> 會更有禮貌。</p>
+
+<div class="tbl"><table>
+<tr><th>對象</th><th>怎麼變</th><th>kommen</th><th>nehmen</th><th>fahren</th><th>aufstehen</th><th>sein</th></tr>
+<tr><td class="d">du</td><td class="w">du 形式去掉 -st 和 du</td><td>Komm!</td><td><mark>Nimm!</mark></td><td>Fahr!</td><td>Steh auf!</td><td><mark>Sei!</mark></td></tr>
+<tr><td class="d">ihr</td><td class="w">ihr 形式去掉 ihr</td><td>Kommt!</td><td>Nehmt!</td><td>Fahrt!</td><td>Steht auf!</td><td><mark>Seid!</mark></td></tr>
+<tr><td class="d">Sie</td><td class="w">動詞 + Sie</td><td>Kommen Sie!</td><td>Nehmen Sie!</td><td>Fahren Sie!</td><td>Stehen Sie auf!</td><td><mark>Seien Sie!</mark></td></tr>
+</table></div>
+<div class="rule">
+<div><b>e → i 會保留</b>du nimmst → <u>Nimm</u>!｜du sprichst → <u>Sprich</u>!｜du liest → <u>Lies</u>!</div>
+<div><b>a → ä 不保留</b>du fährst → <u>Fahr</u>!｜du schläfst → <u>Schlaf</u>!</div>
+<div><b>字幹 -t / -d</b>du 命令式加 -e：<u>Warte</u>!｜<u>Antworte</u>!</div>
+</div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Komm bitte schnell!</span><span class="zh">請快點來！</span></li>
+<li><span class="de">Nehmen Sie bitte Platz.</span><span class="zh">請坐。</span></li>
+<li><span class="de">Sprich bitte langsam!</span><span class="zh">請說慢一點！</span></li>
+<li><span class="de">Kinder, seid bitte leise!</span><span class="zh">孩子們，請安靜！</span></li>
+<li><span class="de">Ruf mich morgen an!</span><span class="zh">明天打電話給我！</span></li>
+<li><span class="de">Warten Sie einen Moment, bitte.</span><span class="zh">請稍等一下。</span></li>
+</ul>
+<div class="quiz" data-quiz="k13"></div>
+</section>
+
+<!-- ================= K14 ================= -->
+<section class="chap" id="k14" data-title="與格 Dativ 與介系詞" data-de="Dativ & Präpositionen" hidden>
+<p class="eyebrow">Kapitel 14</p>
+<h2>與格 Dativ（第三格）與介系詞</h2>
+<p class="de-sub">Der Dativ und Präpositionen mit Dativ</p>
+<p class="lead">與格表示「間接受詞」（給誰、對誰），也出現在特定介系詞和動詞之後。這次四種詞性<mark>全部都會變</mark>，記住口訣：陽中性 -m，陰性 -r，複數 -n。</p>
+
+<div class="tbl"><table>
+<tr><th></th><th>陽性</th><th>陰性</th><th>中性</th><th>複數</th></tr>
+<tr><td>主格</td><td class="d m">der / ein</td><td class="d f">die / eine</td><td class="d n">das / ein</td><td class="d pl">die / –</td></tr>
+<tr><td>與格 Dat.</td><td class="d m"><mark>dem / einem</mark></td><td class="d f"><mark>der / einer</mark></td><td class="d n"><mark>dem / einem</mark></td><td class="d pl"><mark>den / –</mark> + n</td></tr>
+</table></div>
+<p>複數與格的名詞要多加 <span class="k">-n</span>（如果還沒有的話）：mit den Kinder<u>n</u>。所有格冠詞和 kein 也一樣：mit mein<u>em</u> Bruder、mit mein<u>er</u> Mutter。</p>
+
+<h4>一定接與格的介系詞</h4>
+<div class="tbl"><table>
+<tr><th>介系詞</th><th>意思</th><th>例子</th></tr>
+<tr><td class="d">aus</td><td>從（來自）</td><td>Ich komme aus der Schweiz.</td></tr>
+<tr><td class="d">bei</td><td>在…那裡</td><td>Ich wohne bei meiner Tante.</td></tr>
+<tr><td class="d">mit</td><td>和、搭乘</td><td>Ich fahre mit dem Bus.</td></tr>
+<tr><td class="d">nach</td><td>之後；去（城市國家）</td><td>Nach dem Kurs gehe ich nach Hause.</td></tr>
+<tr><td class="d">seit</td><td>自從、已經…</td><td>Ich lerne seit einem Jahr Deutsch.</td></tr>
+<tr><td class="d">von</td><td>從、…的</td><td>Das ist ein Geschenk von meiner Freundin.</td></tr>
+<tr><td class="d">zu</td><td>去（人、地點）</td><td>Ich gehe zum Arzt.</td></tr>
+</table></div>
+<div class="tip"><b>常見縮寫</b><p>zu + dem = <span class="k">zum</span>｜zu + der = <span class="k">zur</span>｜bei + dem = <span class="k">beim</span>｜von + dem = <span class="k">vom</span></p></div>
+
+<h4>接與格的動詞</h4>
+<p>helfen 幫忙、danken 感謝、gefallen 喜歡（某物讓某人喜歡）、gehören 屬於、schmecken 好吃、passen 合適、antworten 回答（某人）。問「誰」用 <span class="k">Wem?</span></p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich fahre mit dem Fahrrad zur Arbeit.</span><span class="zh">我騎腳踏車去上班。</span></li>
+<li><span class="de">Er arbeitet bei einer Bank.</span><span class="zh">他在一家銀行工作。</span></li>
+<li><span class="de">Wir wohnen seit zwei Jahren in Hamburg.</span><span class="zh">我們已經在漢堡住兩年了。</span></li>
+<li><span class="de">Das Fahrrad gehört dem Lehrer.</span><span class="zh">這台腳踏車是老師的。</span></li>
+<li><span class="de">Ich helfe meiner Mutter in der Küche.</span><span class="zh">我在廚房幫媽媽。</span></li>
+<li><span class="de">Kommst du vom Supermarkt?</span><span class="zh">你是從超市回來的嗎？</span></li>
+</ul>
+<div class="quiz" data-quiz="k14"></div>
+</section>
+
+<!-- ================= K15 ================= -->
+<section class="chap" id="k15" data-title="地點與方向" data-de="Wo? Wohin? Woher?" hidden>
+<p class="eyebrow">Kapitel 15</p>
+<h2>地點與方向：Wo? Wohin? Woher?</h2>
+<p class="de-sub">Lokale Präpositionen</p>
+<p class="lead">德語會區分「在哪裡」（靜止）和「去哪裡」（移動）。A1 階段最常用的是下面這張表，把它當成套句背起來最快。</p>
+
+<div class="tbl"><table>
+<tr><th></th><th>Wo? 在哪（與格）</th><th>Wohin? 去哪</th><th>Woher? 從哪（與格）</th></tr>
+<tr><td>城市、無冠詞國家</td><td>in Berlin, in Taiwan</td><td><mark>nach</mark> Berlin, <mark>nach</mark> Taiwan</td><td>aus Berlin</td></tr>
+<tr><td>有冠詞的國家</td><td>in der Schweiz</td><td><mark>in die</mark> Schweiz（受格）</td><td>aus der Schweiz</td></tr>
+<tr><td>家</td><td><mark>zu Hause</mark></td><td><mark>nach Hause</mark></td><td>von zu Hause</td></tr>
+<tr><td>建築物（進去裡面）</td><td>im Kino, in der Schule</td><td>ins Kino, in die Schule（受格）</td><td>aus dem Kino</td></tr>
+<tr><td>人、機構、地點</td><td>beim Arzt, bei Anna</td><td><mark>zum</mark> Arzt, <mark>zu</mark> Anna, <mark>zur</mark> Post</td><td>vom Arzt, von Anna</td></tr>
+<tr><td>在旁邊／水邊</td><td>am Bahnhof, am Meer</td><td>an den Bahnhof, ans Meer（受格）</td><td>vom Bahnhof</td></tr>
+<tr><td>在上面／廣場、市集</td><td>auf dem Markt</td><td>auf den Markt（受格）</td><td>vom Markt</td></tr>
+</table></div>
+
+<div class="tip"><b>in / an / auf 是「雙向介系詞」</b><p>問 Wo?（靜止）→ 接與格：Ich bin <u>im</u> Büro.<br>問 Wohin?（移動方向）→ 接受格：Ich gehe <u>ins</u> Büro.<br>縮寫：in + dem = im，in + das = ins，an + dem = am，an + das = ans。</p></div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich bin heute zu Hause.</span><span class="zh">我今天在家。</span></li>
+<li><span class="de">Um 18 Uhr gehe ich nach Hause.</span><span class="zh">我六點回家。</span></li>
+<li><span class="de">Wir fliegen im Mai nach Deutschland.</span><span class="zh">我們五月飛去德國。</span></li>
+<li><span class="de">Gehst du heute Abend ins Kino?</span><span class="zh">你今晚去看電影嗎？</span></li>
+<li><span class="de">Meine Schwester ist im Supermarkt.</span><span class="zh">我姊姊在超市。</span></li>
+<li><span class="de">Ich muss zur Post und dann zum Bahnhof.</span><span class="zh">我得去郵局，然後去火車站。</span></li>
+</ul>
+<div class="quiz" data-quiz="k15"></div>
+</section>
+
+<!-- ================= K16 ================= -->
+<section class="chap" id="k16" data-title="人稱代名詞的受格與與格" data-de="Personalpronomen Akk. & Dat." hidden>
+<p class="eyebrow">Kapitel 16</p>
+<h2>人稱代名詞：受格與與格</h2>
+<p class="de-sub">Personalpronomen im Akkusativ und Dativ</p>
+<p class="lead">「我愛你」、「幫我」、「給她」——代名詞當受詞時也要變格。這張表是 A1 必背表格之一。</p>
+
+<div class="tbl"><table>
+<tr><th>主格 Nom.</th><th>受格 Akk.</th><th>與格 Dat.</th><th>中文</th></tr>
+<tr><td class="d">ich</td><td class="d"><mark>mich</mark></td><td class="d"><mark>mir</mark></td><td>我</td></tr>
+<tr><td class="d">du</td><td class="d"><mark>dich</mark></td><td class="d"><mark>dir</mark></td><td>你</td></tr>
+<tr><td class="d">er</td><td class="d">ihn</td><td class="d">ihm</td><td>他</td></tr>
+<tr><td class="d">sie</td><td class="d">sie</td><td class="d">ihr</td><td>她</td></tr>
+<tr><td class="d">es</td><td class="d">es</td><td class="d">ihm</td><td>它</td></tr>
+<tr><td class="d">wir</td><td class="d">uns</td><td class="d">uns</td><td>我們</td></tr>
+<tr><td class="d">ihr</td><td class="d">euch</td><td class="d">euch</td><td>你們</td></tr>
+<tr><td class="d">sie</td><td class="d">sie</td><td class="d">ihnen</td><td>他們</td></tr>
+<tr><td class="d">Sie</td><td class="d">Sie</td><td class="d">Ihnen</td><td>您</td></tr>
+</table></div>
+
+<h4>常用句型</h4>
+<div class="rule">
+<div><b>Wie geht es …?（與格）</b>Wie geht es <u>dir</u>? / <u>Ihnen</u>?<br>Mir geht es gut, danke.</div>
+<div><b>gefallen / schmecken（與格）</b>Das Kleid gefällt <u>mir</u>.<br>Schmeckt <u>dir</u> die Suppe?</div>
+<div><b>受格動詞</b>Ich liebe <u>dich</u>.<br>Ich besuche <u>euch</u> morgen.</div>
+</div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Kannst du mir bitte helfen?</span><span class="zh">你可以幫我一下嗎？</span></li>
+<li><span class="de">Ich rufe ihn heute Abend an.</span><span class="zh">我今晚打電話給他。</span></li>
+<li><span class="de">Wie gefällt dir Berlin?</span><span class="zh">你覺得柏林怎麼樣？</span></li>
+<li><span class="de">Der Kuchen schmeckt uns sehr gut.</span><span class="zh">我們覺得這蛋糕很好吃。</span></li>
+<li><span class="de">Ich gebe ihr das Buch.</span><span class="zh">我把書給她。</span></li>
+<li><span class="de">Vielen Dank, ich verstehe Sie gut.</span><span class="zh">非常感謝，我聽得懂您的話。</span></li>
+</ul>
+<div class="quiz" data-quiz="k16"></div>
+</section>
+
+<!-- ================= K17 ================= -->
+<section class="chap" id="k17" data-title="連接詞" data-de="Konjunktionen" hidden>
+<p class="eyebrow">Kapitel 17</p>
+<h2>連接詞 und, aber, oder, denn</h2>
+<p class="de-sub">Konjunktionen und Satzverbindungen</p>
+<p class="lead">A1 的四個連接詞都屬於「位置 0」：它們連接兩個句子，但<mark>不佔位置，不影響後面的語序</mark>。後半句照樣是「主詞 + 動詞」。</p>
+
+<div class="tbl"><table>
+<tr><th>句子 1</th><th>位置 0</th><th>位置 1</th><th>位置 2</th><th>其餘</th></tr>
+<tr><td>Ich lerne Deutsch,</td><td class="d"><mark>denn</mark></td><td>ich</td><td class="d">möchte</td><td>in Wien studieren.</td></tr>
+<tr><td>Er ist müde,</td><td class="d"><mark>aber</mark></td><td>er</td><td class="d">arbeitet</td><td>noch.</td></tr>
+<tr><td>Ich koche</td><td class="d"><mark>und</mark></td><td>du</td><td class="d">deckst</td><td>den Tisch.</td></tr>
+</table></div>
+
+<div class="rule">
+<div><b>und</b>和、而且</div>
+<div><b>oder</b>或者、還是</div>
+<div><b>aber</b>但是</div>
+<div><b>denn</b>因為（說明原因）</div>
+</div>
+
+<h4>對比：dann 是副詞，會佔位置 1</h4>
+<p><span class="k">dann</span>（然後）、<span class="k">danach</span>（之後）、<span class="k">zuerst</span>（首先）是副詞，放句首時動詞要緊接在後：<span class="k">Zuerst frühstücke ich, <u>dann gehe</u> ich zur Arbeit.</span></p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Möchtest du Tee oder Kaffee?</span><span class="zh">你要茶還是咖啡？</span></li>
+<li><span class="de">Ich komme heute nicht, denn ich bin krank.</span><span class="zh">我今天不來，因為我生病了。</span></li>
+<li><span class="de">Die Wohnung ist schön, aber sie ist teuer.</span><span class="zh">這間公寓很漂亮，但是很貴。</span></li>
+<li><span class="de">Ich spiele Gitarre und meine Schwester singt.</span><span class="zh">我彈吉他，我妹妹唱歌。</span></li>
+<li><span class="de">Zuerst kaufe ich ein, dann koche ich.</span><span class="zh">我先去買東西，然後煮飯。</span></li>
+</ul>
+<div class="quiz" data-quiz="k17"></div>
+</section>
+
+<!-- ================= K18 ================= -->
+<section class="chap" id="k18" data-title="現在完成式 Perfekt" data-de="Perfekt" hidden>
+<p class="eyebrow">Kapitel 18</p>
+<h2>現在完成式 Perfekt</h2>
+<p class="de-sub">Das Perfekt</p>
+<p class="lead">口語中談論過去的事，德語主要用現在完成式。結構是句框：<mark>haben 或 sein 在第 2 位，過去分詞（Partizip II）放句尾</mark>。</p>
+
+<div class="tbl"><table>
+<tr><th>位置 1</th><th>位置 2</th><th>中間</th><th>句尾（Partizip II）</th></tr>
+<tr><td>Ich</td><td class="d"><mark>habe</mark></td><td>gestern Pizza</td><td class="d"><mark>gegessen</mark>.</td></tr>
+<tr><td>Wir</td><td class="d"><mark>sind</mark></td><td>nach Wien</td><td class="d"><mark>gefahren</mark>.</td></tr>
+</table></div>
+
+<h4>過去分詞怎麼做</h4>
+<div class="tbl"><table>
+<tr><th>類型</th><th>規則</th><th>例子</th></tr>
+<tr><td>規則動詞</td><td class="d">ge- + 字幹 + -t</td><td class="w">machen → <mark>ge</mark>mach<mark>t</mark>, kaufen → gekauft, arbeiten → gearbeit<u>e</u>t</td></tr>
+<tr><td>不規則動詞</td><td class="d">ge- + (變) + -en</td><td class="w">essen → gegessen, trinken → getrunken, sehen → gesehen, schreiben → geschrieben, lesen → gelesen</td></tr>
+<tr><td>可分動詞</td><td class="d">字首 + ge + …</td><td class="w">einkaufen → ein<mark>ge</mark>kauft, aufstehen → auf<mark>ge</mark>standen, anrufen → angerufen</td></tr>
+<tr><td>-ieren 動詞</td><td class="d">沒有 ge-</td><td class="w">studieren → studiert, telefonieren → telefoniert</td></tr>
+<tr><td>不可分字首</td><td class="d">沒有 ge-</td><td class="w">besuchen → besucht, verstehen → verstanden, bezahlen → bezahlt</td></tr>
+</table></div>
+
+<h4>haben 還是 sein？</h4>
+<div class="rule">
+<div><b>多數動詞用 haben</b>Ich habe gearbeitet / gekocht / gelesen.</div>
+<div><b>位置移動用 sein</b>gehen → ist gegangen, fahren → ist gefahren, kommen → ist gekommen, fliegen → ist geflogen</div>
+<div><b>狀態改變與例外用 sein</b>aufstehen → ist aufgestanden, bleiben → ist geblieben, passieren → ist passiert</div>
+</div>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Was hast du am Wochenende gemacht?</span><span class="zh">你週末做了什麼？</span></li>
+<li><span class="de">Ich habe einen Film gesehen.</span><span class="zh">我看了一部電影。</span></li>
+<li><span class="de">Wir sind mit dem Zug nach Köln gefahren.</span><span class="zh">我們搭火車去了科隆。</span></li>
+<li><span class="de">Sie ist heute um sechs Uhr aufgestanden.</span><span class="zh">她今天六點就起床了。</span></li>
+<li><span class="de">Hast du schon eingekauft?</span><span class="zh">你已經買過東西了嗎？</span></li>
+<li><span class="de">Er hat in Heidelberg Informatik studiert.</span><span class="zh">他在海德堡讀資訊工程。</span></li>
+</ul>
+<div class="quiz" data-quiz="k18"></div>
+</section>
+
+<!-- ================= K19 ================= -->
+<section class="chap" id="k19" data-title="過去式 war / hatte" data-de="Präteritum: sein & haben" hidden>
+<p class="eyebrow">Kapitel 19</p>
+<h2>過去式：war 與 hatte</h2>
+<p class="de-sub">Präteritum von „sein" und „haben"</p>
+<p class="lead">說過去時，<span class="k">sein</span> 和 <span class="k">haben</span> 在口語中通常<mark>不用完成式，而是用過去式</mark>：說 Ich war krank，比 Ich bin krank gewesen 更自然。</p>
+
+<div class="tbl"><table>
+<tr><th>人稱</th><th>sein → war</th><th>haben → hatte</th></tr>
+<tr><td class="d">ich</td><td><mark>war</mark></td><td><mark>hatte</mark></td></tr>
+<tr><td class="d">du</td><td>warst</td><td>hattest</td></tr>
+<tr><td class="d">er/sie/es</td><td><mark>war</mark></td><td><mark>hatte</mark></td></tr>
+<tr><td class="d">wir</td><td>waren</td><td>hatten</td></tr>
+<tr><td class="d">ihr</td><td>wart</td><td>hattet</td></tr>
+<tr><td class="d">sie/Sie</td><td>waren</td><td>hatten</td></tr>
+</table></div>
+<div class="tip"><b>和情態動詞一樣</b><p>ich 和 er/sie/es 形式相同，沒有額外詞尾。</p></div>
+
+<h4>常和過去式一起出現的時間詞</h4>
+<p>gestern 昨天、vorgestern 前天、letzte Woche 上週、letztes Jahr 去年、früher 以前、vor zwei Tagen 兩天前</p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Gestern war ich krank.</span><span class="zh">我昨天生病了。</span></li>
+<li><span class="de">Wo warst du letzte Woche?</span><span class="zh">你上週去哪了？</span></li>
+<li><span class="de">Wir waren im Urlaub in Italien.</span><span class="zh">我們去義大利度假了。</span></li>
+<li><span class="de">Ich hatte leider keine Zeit.</span><span class="zh">可惜我那時沒空。</span></li>
+<li><span class="de">Das Wetter war schön und wir hatten viel Spaß.</span><span class="zh">天氣很好，我們玩得很開心。</span></li>
+</ul>
+<div class="quiz" data-quiz="k19"></div>
+</section>
+
+<!-- ================= K20 ================= -->
+<section class="chap" id="k20" data-title="形容詞與比較" data-de="Adjektive, gern, Komparativ" hidden>
+<p class="eyebrow">Kapitel 20</p>
+<h2>形容詞、gern 與比較</h2>
+<p class="de-sub">Adjektive (prädikativ), gern – lieber – am liebsten</p>
+<p class="lead">A1 的形容詞大多放在 sein 後面當「表語」，這時<mark>形容詞完全不變化</mark>。再加上幾個程度副詞和 gern 的比較，就能表達喜好。</p>
+
+<h4>形容詞放在 sein / finden 之後</h4>
+<ul class="ex">
+<li><span class="de">Das Hotel ist sehr schön.</span><span class="zh">這間飯店很漂亮。</span></li>
+<li><span class="de">Ich finde den Film langweilig.</span><span class="zh">我覺得這部電影很無聊。</span></li>
+</ul>
+<p>常見反義詞：groß ↔ klein｜alt ↔ neu / jung｜teuer ↔ billig｜schnell ↔ langsam｜warm ↔ kalt｜laut ↔ leise｜hell ↔ dunkel</p>
+<div class="rule">
+<div><b>sehr</b>很<br>Das ist sehr gut.</div>
+<div><b>ziemlich</b>相當<br>Es ist ziemlich kalt.</div>
+<div><b>zu</b>太（負面）<br>Die Schuhe sind zu teuer.</div>
+</div>
+
+<h4>gern 與比較級</h4>
+<div class="tbl"><table>
+<tr><th>原級</th><th>比較級</th><th>最高級</th><th>中文</th></tr>
+<tr><td class="d">gern</td><td class="d"><mark>lieber</mark></td><td class="d"><mark>am liebsten</mark></td><td>喜歡 → 比較喜歡 → 最喜歡</td></tr>
+<tr><td class="d">gut</td><td class="d"><mark>besser</mark></td><td class="d"><mark>am besten</mark></td><td>好 → 更好 → 最好</td></tr>
+<tr><td class="d">viel</td><td class="d"><mark>mehr</mark></td><td class="d"><mark>am meisten</mark></td><td>多 → 更多 → 最多</td></tr>
+<tr><td class="d">schnell</td><td class="d">schneller</td><td class="d">am schnellsten</td><td>規則：+er / am …sten</td></tr>
+</table></div>
+<p>比較用 <span class="k">als</span>（比）；相同用 <span class="k">so … wie</span>（和…一樣）：Tee ist billiger <u>als</u> Kaffee.｜Paul ist <u>so</u> groß <u>wie</u> Tim.</p>
+
+<h4>例句</h4>
+<ul class="ex">
+<li><span class="de">Ich trinke gern Tee.</span><span class="zh">我喜歡喝茶。</span></li>
+<li><span class="de">Ich trinke lieber Kaffee als Tee.</span><span class="zh">比起茶，我比較喜歡喝咖啡。</span></li>
+<li><span class="de">Am liebsten esse ich Nudeln.</span><span class="zh">我最喜歡吃麵。</span></li>
+<li><span class="de">Heute ist das Wetter besser als gestern.</span><span class="zh">今天天氣比昨天好。</span></li>
+<li><span class="de">Die Wohnung ist zu klein für uns.</span><span class="zh">這間公寓對我們來說太小了。</span></li>
+</ul>
+<div class="quiz" data-quiz="k20"></div>
+</section>
+
+<!-- ================= TEST ================= -->
+<section class="chap" id="test" data-title="綜合測驗" data-de="Abschlusstest" hidden>
+<p class="eyebrow">Abschlusstest</p>
+<h2>A1 綜合測驗</h2>
+<p class="de-sub">20 題，從全部章節隨機出題</p>
+<p class="lead">讀完所有章節後來這裡檢查整體程度。每次按「重新出題」都會換一組題目。80 分以上代表 A1 文法已經很穩了。</p>
+<div class="quiz" data-quiz="test"></div>
+</section>
+
+<p class="src">章節順序參考 Goethe-Institut〈Goethe-Zertifikat A1: Start Deutsch 1〉考試說明（Prüfungsziele, Testbeschreibung）的文法清單，以及常見 A1 教材的進度安排。<a href="https://goethe.de/pro/relaunch/prf/et/Pruefungsziele_Testbeschreibung_A1_SD1.pdf" target="_blank" rel="noopener">Goethe A1 考試說明 PDF</a></p>
+</main>
+</div>
+
+<script>
+const Q = {
+k1:[
+ {t:'fill',q:'Wir ___ aus Taiwan.',h:'sein',a:['sind'],e:'wir → sind'},
+ {t:'fill',q:'Du ___ sehr nett.',h:'sein',a:['bist'],e:'du → bist'},
+ {t:'fill',q:'Ihr ___ Studenten.',h:'sein',a:['seid'],e:'ihr → seid（不是 sind）'},
+ {t:'mc',q:'句中大寫的「Sie」是什麼意思？ Sind Sie Herr Wagner?',c:['她','他們','您'],a:2,e:'大寫 Sie 是敬稱「您」，句中也大寫。'},
+ {t:'mc',q:'「她是老師。」哪一句正確？',c:['Sie ist eine Lehrerin.','Sie ist Lehrerin.','Sie sind Lehrerin.'],a:1,e:'說職業時通常不加冠詞，「她」用 ist。'}
+],
+k2:[
+ {t:'fill',q:'Wo ___ du?',h:'wohnen',a:['wohnst'],e:'du → 字幹 + st'},
+ {t:'fill',q:'Er ___ bei Siemens.',h:'arbeiten',a:['arbeitet'],e:'字幹以 -t 結尾，要加 e：arbeitet'},
+ {t:'fill',q:'Wie ___ du?',h:'heißen',a:['heißt','heisst'],e:'字幹以 -ß 結尾，du 只加 -t：heißt'},
+ {t:'fill',q:'Ihr ___ Fußball.',h:'spielen',a:['spielt'],e:'ihr → 字幹 + t'},
+ {t:'mc',q:'哪一個人稱的動詞形式和原形一樣？',c:['ich','er','wir'],a:2,e:'wir、sie（他們）、Sie 都等於原形。'}
+],
+k3:[
+ {t:'mc',q:'Morgen ___ nach Berlin.',c:['ich fahre','fahre ich','fahren ich'],a:1,e:'時間詞在位置 1，動詞在位置 2，主詞往後。'},
+ {t:'mc',q:'„___ kommst du?" – „Aus Japan."',c:['Wo','Wohin','Woher'],a:2,e:'回答「從日本」→ 問 Woher（從哪裡）。'},
+ {t:'mc',q:'„___ kostet das?" – „Fünf Euro."',c:['Wie viel','Wann','Wer'],a:0,e:'問價錢用 Wie viel。'},
+ {t:'mc',q:'哪一句是正確的是非問句？',c:['Du sprichst Deutsch?','Sprichst du Deutsch?','Sprichst Deutsch du?'],a:1,e:'是非問句：動詞放第 1 位，接著主詞。'},
+ {t:'mc',q:'„Hast du keinen Hunger?" – „___, ich habe Hunger!"',c:['Ja','Nein','Doch'],a:2,e:'否定問句的肯定回答要用 Doch。'}
+],
+k4:[
+ {t:'mc',q:'___ Zeitung',c:['der','die','das'],a:1,e:'-ung 結尾 → 陰性 die。'},
+ {t:'mc',q:'___ Mädchen',c:['der','die','das'],a:2,e:'-chen 結尾 → 中性 das，即使是女孩。'},
+ {t:'mc',q:'___ Montag',c:['der','die','das'],a:0,e:'星期都是陽性 der。'},
+ {t:'fill',q:'Das ist ___ Handy. Das Handy ist neu.',h:'不定冠詞',a:['ein'],e:'das Handy → 不定冠詞 ein。'},
+ {t:'mc',q:'Wie ist die Wohnung? – ___ ist groß.',c:['Er','Sie','Es'],a:1,e:'die Wohnung → 代名詞 sie。'}
+],
+k5:[
+ {t:'fill',q:'das Buch → die ___',h:'複數',a:['Bücher'],e:'¨-er：Buch → Bücher'},
+ {t:'fill',q:'die Lampe → die ___',h:'複數',a:['Lampen'],e:'-n：Lampe → Lampen'},
+ {t:'fill',q:'das Auto → die ___',h:'複數',a:['Autos'],e:'外來語 → -s'},
+ {t:'fill',q:'Ich habe zwei ___.',h:'das Kind',a:['Kinder'],e:'Kind → Kinder'},
+ {t:'mc',q:'複數名詞的定冠詞是？',c:['der','die','das'],a:1,e:'所有複數的定冠詞都是 die。'}
+],
+k6:[
+ {t:'fill',q:'Ich habe ___ Auto.',h:'否定',a:['kein'],e:'das Auto，受格中性 → kein。'},
+ {t:'fill',q:'Das Essen ist ___ gut.',h:'否定',a:['nicht'],e:'否定形容詞用 nicht。'},
+ {t:'fill',q:'Er trinkt ___ Kaffee.',h:'否定，der Kaffee',a:['keinen'],e:'陽性受格 → keinen。'},
+ {t:'fill',q:'Wir haben heute ___ Zeit.',h:'否定，die Zeit',a:['keine'],e:'陰性 → keine。'},
+ {t:'mc',q:'„Das ist ___ Thomas, das ist Peter."',c:['kein','nicht','keinen'],a:1,e:'否定人名用 nicht。'}
+],
+k7:[
+ {t:'fill',q:'___ du mit dem Auto?',h:'fahren',a:['Fährst','fährst'],e:'a → ä：du fährst'},
+ {t:'fill',q:'Er ___ gern Pizza.',h:'essen',a:['isst'],e:'e → i：er isst'},
+ {t:'fill',q:'Sie ___ ein Buch.',h:'lesen',a:['liest'],e:'e → ie：sie liest'},
+ {t:'fill',q:'Was ___ du? Tee oder Kaffee?',h:'nehmen',a:['nimmst'],e:'特殊：du nimmst, er nimmt'},
+ {t:'fill',q:'Ich ___ das nicht.',h:'wissen',a:['weiß','weiss'],e:'wissen：ich weiß'},
+ {t:'fill',q:'Ihr ___ ein schönes Haus.',h:'haben',a:['habt'],e:'haben：ihr habt'}
+],
+k8:[
+ {t:'fill',q:'Ich habe ___ Bruder.',h:'ein',a:['einen'],e:'der Bruder，受格 → einen。'},
+ {t:'fill',q:'Siehst du ___ Hund?',h:'der',a:['den'],e:'陽性受格 der → den。'},
+ {t:'fill',q:'Er kauft ___ Lampe.',h:'ein',a:['eine'],e:'陰性受格不變：eine。'},
+ {t:'fill',q:'Hier gibt es ___ Park.',h:'ein',a:['einen'],e:'es gibt + 受格 → einen Park。'},
+ {t:'mc',q:'問「你在找誰？」：___ suchst du?',c:['Wer','Wen','Wem'],a:1,e:'受格的「誰」→ Wen。'}
+],
+k9:[
+ {t:'fill',q:'Das ist ___ Schwester.',h:'ich',a:['meine'],e:'die Schwester → meine'},
+ {t:'fill',q:'Peter und ___ Auto.',h:'er',a:['sein'],e:'er → sein；das Auto 不加詞尾。'},
+ {t:'fill',q:'Anna und ___ Bruder.',h:'sie（她）',a:['ihr'],e:'sie（她）→ ihr；der Bruder 主格不加詞尾。'},
+ {t:'fill',q:'Ich suche ___ Schlüssel.',h:'mein, der Schlüssel',a:['meinen'],e:'陽性受格 → meinen'},
+ {t:'fill',q:'Wo ist ___ Wohnung?',h:'ihr（你們）',a:['eure'],e:'euer + e → eure'},
+ {t:'mc',q:'Wie ist ___ Name, bitte? （對陌生人）',c:['dein','ihr','Ihr'],a:2,e:'敬稱「您的」→ 大寫 Ihr。'}
+],
+k10:[
+ {t:'fill',q:'Der Unterricht beginnt ___ 8 Uhr.',h:'時間介系詞',a:['um'],e:'幾點鐘 → um'},
+ {t:'fill',q:'___ Sonntag schlafe ich lange.',h:'時間介系詞',a:['Am','am'],e:'星期 → am'},
+ {t:'fill',q:'___ Juli habe ich Urlaub.',h:'時間介系詞',a:['Im','im'],e:'月份 → im'},
+ {t:'mc',q:'2:30 的口語說法是？',c:['halb zwei','halb drei','zwei halb'],a:1,e:'halb drei =「三點的一半」= 2:30'},
+ {t:'mc',q:'45 怎麼說？',c:['vierzigfünf','fünfundvierzig','fünfvierzig'],a:1,e:'個位 + und + 十位：fünfundvierzig'},
+ {t:'mc',q:'7 月 3 日：am ___ Juli',c:['dreiten','dritten','dreisten'],a:1,e:'序數例外：dritte → am dritten'}
+],
+k11:[
+ {t:'fill',q:'Ich stehe um 6 Uhr ___.',h:'aufstehen',a:['auf'],e:'字首 auf 放句尾。'},
+ {t:'fill',q:'Der Film ___ um 20 Uhr an.',h:'anfangen',a:['fängt'],e:'fangen 是 a→ä 動詞：er fängt … an'},
+ {t:'mc',q:'哪一句正確？（einkaufen）',c:['Ich einkaufe heute.','Ich kaufe heute ein.','Ich kaufe ein heute.'],a:1,e:'動詞本體在位置 2，字首在最後。'},
+ {t:'mc',q:'哪一個動詞「不可分」？',c:['anrufen','mitkommen','verstehen'],a:2,e:'ver- 是不可分字首。'},
+ {t:'fill',q:'Ruf mich bitte morgen ___!',h:'anrufen',a:['an'],e:'命令式也會分開：Ruf … an!'}
+],
+k12:[
+ {t:'fill',q:'Ich ___ gut schwimmen.',h:'können',a:['kann'],e:'ich → kann'},
+ {t:'fill',q:'___ du morgen arbeiten?',h:'müssen',a:['Musst','musst'],e:'du → musst'},
+ {t:'fill',q:'Er ___ einen Kaffee.',h:'möchten',a:['möchte'],e:'er → möchte（沒有 -t）'},
+ {t:'fill',q:'Hier ___ man nicht parken.',h:'dürfen',a:['darf'],e:'man → er 形式：darf'},
+ {t:'mc',q:'哪一句語序正確？',c:['Ich will lernen Deutsch.','Ich will Deutsch lernen.','Ich Deutsch lernen will.'],a:1,e:'情態動詞位置 2，原形放句尾。'}
+],
+k13:[
+ {t:'fill',q:'___ bitte! （du, kommen）',h:'命令式',a:['Komm','Komme'],e:'du kommst → Komm!'},
+ {t:'fill',q:'___ bitte einen Moment! （Sie, warten）',h:'命令式，兩個字',a:['Warten Sie'],e:'Sie 命令式：動詞 + Sie'},
+ {t:'fill',q:'___ das Buch! （du, nehmen）',h:'命令式',a:['Nimm'],e:'e → i 會保留：Nimm!'},
+ {t:'fill',q:'Kinder, ___ leise! （ihr, sein）',h:'命令式',a:['seid'],e:'sein 的 ihr 命令式：Seid!'},
+ {t:'mc',q:'du, fahren 的命令式？',c:['Fähr!','Fahr!','Fährst!'],a:1,e:'a → ä 在命令式不保留：Fahr!'}
+],
+k14:[
+ {t:'fill',q:'Ich fahre mit ___ Zug.',h:'der',a:['dem'],e:'mit + 與格，陽性 → dem'},
+ {t:'fill',q:'Ich helfe ___ Frau.',h:'die',a:['der'],e:'helfen + 與格，陰性 die → der'},
+ {t:'fill',q:'Ich lerne seit ___ Jahr Deutsch.',h:'ein, das Jahr',a:['einem'],e:'seit + 與格，中性 → einem'},
+ {t:'mc',q:'zu + der = ?',c:['zum','zur','zun'],a:1,e:'zu + der = zur；zu + dem = zum'},
+ {t:'fill',q:'Ich komme ___ Japan.',h:'介系詞',a:['aus'],e:'來自某國 → aus'},
+ {t:'mc',q:'___ gehört das Buch? – Dem Lehrer.',c:['Wer','Wen','Wem'],a:2,e:'與格的「誰」→ Wem'}
+],
+k15:[
+ {t:'fill',q:'Ich fahre im Sommer ___ Deutschland.',h:'方向',a:['nach'],e:'去無冠詞的國家 → nach'},
+ {t:'fill',q:'Gehst du heute ___ Kino?',h:'in + das',a:['ins'],e:'去建築物裡面 → ins Kino'},
+ {t:'mc',q:'„Ich bin heute ___ Hause."',c:['nach','zu','in'],a:1,e:'在家 = zu Hause；回家 = nach Hause'},
+ {t:'fill',q:'Meine Mutter ist ___ Supermarkt.',h:'in + dem',a:['im'],e:'Wo? → 與格：im Supermarkt'},
+ {t:'fill',q:'Er geht ___ Arzt.',h:'zu + dem',a:['zum'],e:'去看醫生 → zum Arzt'},
+ {t:'mc',q:'Ich wohne ___ Schweiz.',c:['in der','nach der','in die'],a:0,e:'Wo? 有冠詞國家 → in der Schweiz'}
+],
+k16:[
+ {t:'fill',q:'Ich sehe ___ jeden Tag.',h:'er',a:['ihn'],e:'sehen + 受格：er → ihn'},
+ {t:'fill',q:'Hilf ___ bitte!',h:'ich',a:['mir'],e:'helfen + 與格：ich → mir'},
+ {t:'fill',q:'Wie geht es ___?',h:'Sie',a:['Ihnen'],e:'Sie 的與格 → Ihnen'},
+ {t:'fill',q:'Das Restaurant gefällt ___.',h:'wir',a:['uns'],e:'wir 的與格 → uns'},
+ {t:'fill',q:'Ich liebe ___.',h:'du',a:['dich'],e:'lieben + 受格：du → dich'},
+ {t:'fill',q:'Ich gebe ___ das Buch.',h:'sie（她）',a:['ihr'],e:'給她 → 與格 ihr'}
+],
+k17:[
+ {t:'fill',q:'Ich komme nicht, ___ ich bin krank.',h:'因為',a:['denn'],e:'denn = 因為，語序不變'},
+ {t:'fill',q:'Möchtest du Tee ___ Kaffee?',h:'或者',a:['oder'],e:'oder = 或者'},
+ {t:'fill',q:'Ich mag Hunde, ___ ich mag keine Katzen.',h:'但是',a:['aber'],e:'aber = 但是'},
+ {t:'mc',q:'Zuerst frühstücke ich, dann ___ zur Arbeit.',c:['ich gehe','gehe ich','gehen ich'],a:1,e:'dann 是副詞，佔位置 1 → 動詞緊接在後。'},
+ {t:'mc',q:'哪一句正確？',c:['Ich lerne Deutsch, denn ich möchte in Wien wohnen.','Ich lerne Deutsch, denn möchte ich in Wien wohnen.','Ich lerne Deutsch, denn ich in Wien wohnen möchte.'],a:0,e:'denn 在位置 0，後面照常「主詞 + 動詞」。'}
+],
+k18:[
+ {t:'fill',q:'Ich ___ gestern Pizza gegessen.',h:'haben / sein',a:['habe'],e:'essen 用 haben。'},
+ {t:'fill',q:'Wir ___ nach Berlin gefahren.',h:'haben / sein',a:['sind'],e:'fahren 是移動 → sein。'},
+ {t:'fill',q:'machen → ___',h:'Partizip II',a:['gemacht'],e:'規則：ge + mach + t'},
+ {t:'fill',q:'trinken → ___',h:'Partizip II',a:['getrunken'],e:'不規則：getrunken'},
+ {t:'fill',q:'Er hat in Berlin ___.',h:'studieren',a:['studiert'],e:'-ieren 動詞不加 ge-'},
+ {t:'fill',q:'Ich bin um 7 Uhr ___.',h:'aufstehen',a:['aufgestanden'],e:'可分動詞：auf + ge + standen'}
+],
+k19:[
+ {t:'fill',q:'Ich ___ gestern zu Hause.',h:'sein, 過去式',a:['war'],e:'ich → war'},
+ {t:'fill',q:'Du ___ Glück!',h:'haben, 過去式',a:['hattest'],e:'du → hattest'},
+ {t:'fill',q:'Wir ___ letzte Woche in Wien.',h:'sein, 過去式',a:['waren'],e:'wir → waren'},
+ {t:'fill',q:'Er ___ keine Zeit.',h:'haben, 過去式',a:['hatte'],e:'er → hatte'},
+ {t:'fill',q:'Wo ___ ihr am Wochenende?',h:'sein, 過去式',a:['wart'],e:'ihr → wart'}
+],
+k20:[
+ {t:'fill',q:'Ich trinke ___ Tee als Kaffee.',h:'gern 的比較級',a:['lieber'],e:'gern → lieber → am liebsten'},
+ {t:'fill',q:'Am ___ esse ich Pizza.',h:'gern 的最高級',a:['liebsten'],e:'am liebsten = 最喜歡'},
+ {t:'fill',q:'Heute ist das Wetter ___ als gestern.',h:'gut 的比較級',a:['besser'],e:'gut → besser → am besten'},
+ {t:'mc',q:'Die Schuhe sind ___ teuer. Ich kaufe sie nicht.',c:['sehr','zu','so'],a:1,e:'zu = 太（帶有負面結果）'},
+ {t:'mc',q:'Paul ist so groß ___ Tim.',c:['als','wie','dann'],a:1,e:'相同程度：so … wie'}
+]
+};
+
+/* ===== 每章：單字 v [德, 中, 例句, 例句中], 對話 dlg, 閱讀 rd ===== */
+const EX = {
+k1:{v:[["der Name","名字","Mein Name ist Mei.","我的名字是 Mei。"],["das Land, ¨-er","國家","Taiwan ist ein Land in Asien.","台灣是亞洲的一個國家。"],["der Student / die Studentin","大學生","Ich bin Studentin.","我是大學生。"],["der Lehrer / die Lehrerin","老師","Frau Koch ist Lehrerin.","Koch 女士是老師。"],["der Ingenieur / die Ingenieurin","工程師","Er ist Ingenieur.","他是工程師。"],["der Freund / die Freundin","朋友","Lena ist meine Freundin.","Lena 是我的朋友。"],["alt","…歲；老的","Wie alt bist du?","你幾歲？"],["nett","親切的","Die Lehrerin ist nett.","老師很親切。"],["neu","新的","Ich bin neu hier.","我是新來的。"],["Hallo! / Tschüss!","哈囉！／掰掰！","Hallo, ich bin Jonas!","嗨，我是 Jonas！"]],
+ dlg:{t:"Im Deutschkurs",z:"在德語課上",l:[["Lena","Hallo! Ich bin Lena. Und wer bist du?","哈囉！我是 Lena。你是誰？"],["Mei","Hallo, Lena! Ich bin Mei.","哈囉，Lena！我是 Mei。"],["Lena","Bist du neu hier?","妳是新來的嗎？"],["Mei","Ja, ich bin neu. Ich bin aus Taiwan.","對，我是新來的。我來自台灣。"],["Lena","Toll! Wer ist das?","太好了！那是誰？"],["Mei","Das ist Jonas. Er ist auch neu.","那是 Jonas。他也是新來的。"],["Jonas","Hallo! Seid ihr auch Studentinnen?","哈囉！妳們也是學生嗎？"],["Lena","Ja, wir sind Studentinnen. Und du?","對，我們是學生。你呢？"],["Jonas","Ich bin Musiker. Frau Koch ist da – sie ist die Lehrerin!","我是音樂人。Koch 女士來了，她是老師！"]]},
+ rd:{t:"Das ist Mei",z:"這是 Mei",de:"Das ist Mei. Sie ist 28 Jahre alt. Sie ist aus Taipeh, in Taiwan. Mei ist Ingenieurin. Jetzt ist sie in Berlin. Sie ist im Deutschkurs. Der Kurs ist gut und die Lehrerin ist sehr nett. Mei sagt: „Ich bin glücklich hier!“",zh:"這是 Mei。她 28 歲，來自台灣台北。Mei 是工程師。她現在在柏林，正在上德語課。課程很好，老師也很親切。Mei 說：「我在這裡很開心！」"}},
+k2:{v:[["wohnen","住","Ich wohne in Taipeh.","我住在台北。"],["arbeiten","工作","Sie arbeitet im Büro.","她在辦公室工作。"],["lernen","學習","Wir lernen Deutsch.","我們學德語。"],["kochen","煮飯","Er kocht jeden Tag.","他每天煮飯。"],["spielen","玩；演奏","Spielst du Gitarre?","你彈吉他嗎？"],["hören","聽","Ich höre gern Musik.","我喜歡聽音樂。"],["die Musik","音樂","Die Musik ist laut.","音樂很大聲。"],["die Arbeit","工作","Die Arbeit macht Spaß.","工作很有趣。"],["jetzt","現在","Jetzt lerne ich.","我現在在讀書。"],["zusammen","一起","Wir kochen zusammen.","我們一起煮飯。"]],
+ dlg:{t:"Was machst du?",z:"你做什麼的？",l:[["Jonas","Mei, wo wohnst du?","Mei，妳住在哪裡？"],["Mei","Ich wohne in Kreuzberg. Und du?","我住在 Kreuzberg。你呢？"],["Jonas","Ich wohne in Mitte. Ich arbeite auch dort.","我住在 Mitte，也在那裡工作。"],["Mei","Was machst du?","你做什麼工作？"],["Jonas","Ich arbeite in einem Café. Und ich studiere Musik.","我在咖啡館工作，也在念音樂。"],["Mei","Spielst du Gitarre?","你彈吉他嗎？"],["Jonas","Ja, und ich singe. Was machst du am Abend?","對，我也唱歌。妳晚上做什麼？"],["Mei","Ich lerne Deutsch und ich koche.","我學德語，還有煮飯。"],["Jonas","Kochen wir mal zusammen?","我們找天一起煮飯吧？"]]},
+ rd:{t:"Familie Weber",z:"Weber 一家",de:"Familie Weber wohnt in Köln. Herr Weber heißt Thomas. Er arbeitet bei der Post. Frau Weber heißt Sabine. Sie arbeitet als Ärztin. Die Kinder heißen Max und Lisa. Sie lernen Englisch in der Schule. Am Abend kochen die Webers zusammen und hören Musik.",zh:"Weber 一家住在科隆。Weber 先生叫 Thomas，他在郵局工作。Weber 太太叫 Sabine，她是醫生。孩子們叫 Max 和 Lisa，他們在學校學英語。晚上 Weber 一家人一起煮飯、聽音樂。"}},
+k3:{v:[["heute","今天","Heute lerne ich Deutsch.","我今天學德語。"],["morgen","明天","Morgen arbeite ich.","我明天工作。"],["sprechen","說","Sprechen Sie Englisch?","您說英語嗎？"],["die Sprache, -n","語言","Deutsch ist eine schöne Sprache.","德語是很美的語言。"],["interessant","有趣的","Das Buch ist interessant.","這本書很有趣。"],["müde","累的","Ich bin müde.","我累了。"],["natürlich","當然","Natürlich komme ich!","我當然會來！"],["ein bisschen","一點點","Ich spreche ein bisschen Deutsch.","我會說一點德語。"],["das Museum, Museen","博物館","Das Museum ist heute offen.","博物館今天有開。"],["das Foto, -s","照片","Ich mache ein Foto.","我拍一張照片。"]],
+ dlg:{t:"Ein kleines Interview",z:"小訪問",l:[["Lena","Wie heißt du?","妳叫什麼名字？"],["Mei","Ich heiße Mei Lin.","我叫林美。"],["Lena","Woher kommst du?","妳從哪裡來？"],["Mei","Ich komme aus Taiwan.","我來自台灣。"],["Lena","Und wo wohnst du jetzt?","那妳現在住哪？"],["Mei","Jetzt wohne ich in Berlin.","我現在住在柏林。"],["Lena","Warum lernst du Deutsch?","妳為什麼學德語？"],["Mei","Ich finde Deutschland interessant.","我覺得德國很有趣。"],["Lena","Sprichst du auch Englisch?","妳也會說英語嗎？"],["Mei","Ja, natürlich.","會，當然。"],["Lena","Bist du nicht müde?","妳不累嗎？"],["Mei","Doch, ein bisschen!","會啊，有一點！"]]},
+ rd:{t:"Ein Samstag in Berlin",z:"柏林的星期六",de:"Heute ist Samstag. Am Morgen trinkt Mei Kaffee. Dann besucht sie ein Museum. Am Mittag isst sie in einem Restaurant. Am Nachmittag macht sie Fotos am Brandenburger Tor. Am Abend telefoniert sie mit ihrer Mutter in Taiwan. Morgen lernt sie wieder Deutsch.",zh:"今天是星期六。早上 Mei 喝咖啡，然後去參觀博物館。中午她在餐廳吃飯。下午她在布蘭登堡門拍照。晚上她和在台灣的媽媽講電話。明天她又要學德語。"}},
+k4:{v:[["die Wohnung, -en","公寓","Die Wohnung ist hell.","這間公寓很明亮。"],["das Zimmer, -","房間","Das Zimmer ist klein.","房間很小。"],["die Küche, -n","廚房","Die Küche ist neu.","廚房是新的。"],["der Tisch, -e","桌子","Der Tisch ist aus Holz.","桌子是木頭做的。"],["der Stuhl, ¨-e","椅子","Der Stuhl ist bequem.","這椅子很舒服。"],["das Bett, -en","床","Das Bett ist groß.","床很大。"],["die Lampe, -n","燈","Die Lampe ist rot.","燈是紅色的。"],["das Sofa, -s","沙發","Das Sofa ist teuer.","沙發很貴。"],["der Kühlschrank, ¨-e","冰箱","Der Kühlschrank ist leer.","冰箱是空的。"],["hell / dunkel","明亮／暗","Das Zimmer ist dunkel.","房間很暗。"]],
+ dlg:{t:"In der neuen Wohnung",z:"在新公寓",l:[["Mei","Schau mal, das ist die Küche.","妳看，這是廚房。"],["Lena","Oh, die Küche ist schön! Ist das ein Kühlschrank?","喔，廚房好漂亮！那是冰箱嗎？"],["Mei","Ja, der Kühlschrank ist neu.","對，冰箱是新的。"],["Lena","Und was ist das?","那這是什麼？"],["Mei","Das ist eine Lampe. Sie ist aus Taiwan.","這是一盞燈，它是從台灣來的。"],["Lena","Und das Zimmer? Ist es groß?","那房間呢？大嗎？"],["Mei","Ja, das Zimmer ist groß und hell.","對，房間又大又亮。"],["Lena","Und wo ist das Sofa?","那沙發在哪裡？"],["Mei","Das Sofa kommt morgen!","沙發明天才送來！"]]},
+ rd:{t:"Das Zimmer von Jonas",z:"Jonas 的房間",de:"Das ist das Zimmer von Jonas. Es ist klein, aber gemütlich. Hier ist ein Bett. Das Bett ist alt. Dort ist ein Tisch. Der Tisch ist aus Holz. Auf dem Tisch ist eine Lampe. Die Lampe ist rot. Und da ist eine Gitarre. Die Gitarre ist sehr teuer.",zh:"這是 Jonas 的房間。它很小，但很舒適。這裡有一張床，床很舊。那裡有一張桌子，是木頭做的。桌上有一盞燈，燈是紅色的。那裡還有一把吉他，那把吉他非常貴。"}},
+k5:{v:[["der Apfel, ¨","蘋果","Ein Apfel kostet 50 Cent.","一顆蘋果 50 分。"],["die Tomate, -n","番茄","Die Tomaten sind rot.","番茄是紅的。"],["das Ei, -er","蛋","Ich esse zwei Eier.","我吃兩顆蛋。"],["die Banane, -n","香蕉","Die Bananen sind gelb.","香蕉是黃色的。"],["das Brot, -e","麵包","Das Brot ist frisch.","麵包很新鮮。"],["der Markt, ¨-e","市場","Der Markt ist am Samstag.","市集在星期六。"],["das Kilo","公斤","Ein Kilo Tomaten, bitte.","請給我一公斤番茄。"],["kosten","價錢為","Was kostet das?","這多少錢？"],["der Euro, -s","歐元","Das kostet drei Euro.","這要三歐元。"],["die Eltern (Pl.)","父母","Meine Eltern sind nett.","我父母人很好。"]],
+ dlg:{t:"Auf dem Markt",z:"在市場",l:[["Verkäuferin","Guten Tag! Was brauchen Sie?","您好！您需要什麼？"],["Mei","Ich brauche Äpfel und Tomaten.","我需要蘋果和番茄。"],["Verkäuferin","Wie viele Äpfel?","要幾顆蘋果？"],["Mei","Sechs Äpfel, bitte. Und ein Kilo Tomaten.","六顆蘋果，還有一公斤番茄。"],["Verkäuferin","Gern. Brauchen Sie auch Eier?","好的。您也需要蛋嗎？"],["Mei","Ja, zehn Eier, bitte. Was kosten die Bananen?","要，十顆蛋。香蕉多少錢？"],["Verkäuferin","Die Bananen kosten zwei Euro.","香蕉兩歐元。"],["Mei","Gut, dann nehme ich auch Bananen.","好，那我也買香蕉。"]]},
+ rd:{t:"Unser Deutschkurs",z:"我們的德語課",de:"Unser Deutschkurs ist groß. Im Kurs sind 15 Studenten: acht Frauen und sieben Männer. Sie kommen aus zehn Ländern. Im Raum gibt es fünf Tische und sechzehn Stühle. An der Wand hängen zwei Karten und viele Fotos. Die Lehrerinnen heißen Frau Koch und Frau Brandt. Sie sind sehr nett.",zh:"我們的德語課人很多。班上有 15 個學生：八位女生、七位男生，來自十個國家。教室裡有五張桌子、十六張椅子。牆上掛著兩張地圖和很多照片。老師是 Koch 女士和 Brandt 女士，她們人都很好。"}},
+k6:{v:[["die Zeit","時間","Ich habe keine Zeit.","我沒有時間。"],["das Wetter","天氣","Das Wetter ist schön.","天氣很好。"],["kalt / warm","冷／溫暖","Heute ist es kalt.","今天很冷。"],["das Kino, -s","電影院","Das Kino ist groß.","電影院很大。"],["das Picknick, -s","野餐","Wir machen ein Picknick.","我們去野餐。"],["der Balkon, -e","陽台","Die Wohnung hat einen Balkon.","這間公寓有陽台。"],["das Bad, ¨-er","浴室","Das Bad ist klein.","浴室很小。"],["teuer / billig","貴／便宜","Das Handy ist nicht billig.","這支手機不便宜。"],["leider","可惜","Leider habe ich keine Zeit.","可惜我沒空。"],["das Problem, -e","問題","Kein Problem!","沒問題！"]],
+ dlg:{t:"Hast du Zeit?",z:"你有空嗎？",l:[["Jonas","Mei, hast du heute Abend Zeit?","Mei，妳今晚有空嗎？"],["Mei","Nein, leider nicht. Ich habe keine Zeit.","沒有，可惜沒空。"],["Jonas","Und morgen?","那明天呢？"],["Mei","Morgen arbeite ich nicht. Was machen wir?","我明天不用工作。我們要做什麼？"],["Jonas","Gehen wir ins Kino?","去看電影？"],["Mei","Hmm, Kino finde ich nicht so toll. Ist das Wetter gut?","嗯，我覺得電影沒那麼好。天氣好嗎？"],["Jonas","Ja, es ist nicht kalt. Wir machen ein Picknick!","好，不冷。我們去野餐吧！"],["Mei","Super! Aber ich habe keinen Korb.","太好了！不過我沒有籃子。"],["Jonas","Kein Problem, ich habe einen.","沒問題，我有一個。"]]},
+ rd:{t:"Eine kleine Wohnung",z:"一間小公寓",de:"Jonas hat eine Wohnung in Berlin. Die Wohnung ist klein und nicht teuer. Sie hat keine Badewanne, nur eine Dusche. Es gibt auch keinen Balkon. Jonas hat keinen Fernseher, aber er hat viele Bücher. Die Wohnung ist nicht perfekt, aber Jonas wohnt gern dort.",zh:"Jonas 在柏林有一間公寓。公寓很小，也不貴。裡面沒有浴缸，只有淋浴間，也沒有陽台。Jonas 沒有電視，但他有很多書。這間公寓不完美，但 Jonas 很喜歡住在那裡。"}},
+k7:{v:[["das Restaurant, -s","餐廳","Das Restaurant ist voll.","餐廳客滿了。"],["die Speisekarte, -n","菜單","Die Speisekarte, bitte!","請給我菜單！"],["die Suppe, -n","湯","Die Suppe ist heiß.","湯很燙。"],["das Fleisch","肉","Ich esse kein Fleisch.","我不吃肉。"],["das Gemüse","蔬菜","Gemüse ist gesund.","蔬菜很健康。"],["das Wasser","水","Ein Wasser, bitte.","請給我一杯水。"],["der Kellner / die Kellnerin","服務生","Der Kellner ist freundlich.","服務生很友善。"],["das Fahrrad, ¨-er","腳踏車","Sie fährt Fahrrad.","她騎腳踏車。"],["die Geschwister (Pl.)","兄弟姊妹","Hast du Geschwister?","你有兄弟姊妹嗎？"],["oft","常常","Ich esse oft Reis.","我常吃米飯。"]],
+ dlg:{t:"Im Restaurant",z:"在餐廳",l:[["Kellner","Guten Abend! Was nehmen Sie?","晚安！您們要點什麼？"],["Jonas","Ich nehme die Pizza. Mei, was nimmst du?","我要披薩。Mei，妳要什麼？"],["Mei","Ich esse kein Fleisch. Was isst Lena hier immer?","我不吃肉。Lena 在這裡都吃什麼？"],["Jonas","Sie isst oft die Gemüsesuppe. Die ist sehr gut.","她常吃蔬菜湯，很好喝。"],["Mei","Gut, dann nehme ich die Suppe.","好，那我要湯。"],["Kellner","Gern. Und was trinken Sie?","好的。那您們喝什麼？"],["Mei","Ich weiß nicht … Ein Wasser, bitte.","我不知道……一杯水，謝謝。"],["Jonas","Und für mich einen Apfelsaft.","我要一杯蘋果汁。"]]},
+ rd:{t:"Lisa und Max",z:"Lisa 和 Max",de:"Lisa hat einen Bruder. Er heißt Max und ist zwölf Jahre alt. Max liest gern Comics. Am Wochenende schläft er lange. Lisa fährt jeden Tag mit dem Fahrrad zur Schule. Sie spricht gut Englisch und hilft Max bei den Hausaufgaben. Max isst gern Pizza, aber Lisa isst lieber Salat.",zh:"Lisa 有一個弟弟，叫 Max，十二歲。Max 喜歡看漫畫，週末會睡很晚。Lisa 每天騎腳踏車上學。她英語說得很好，會幫 Max 寫作業。Max 喜歡吃披薩，但 Lisa 比較喜歡吃沙拉。"}},
+k8:{v:[["der Rucksack, ¨-e","背包","Der Rucksack ist praktisch.","這背包很實用。"],["die Mütze, -n","毛帽","Die Mütze ist warm.","這頂毛帽很保暖。"],["die Tasche, -n","包包","Ich suche eine Tasche.","我在找一個包包。"],["der Kuchen, -","蛋糕","Der Kuchen schmeckt gut.","蛋糕很好吃。"],["der Saft, ¨-e","果汁","Ich trinke einen Saft.","我喝一杯果汁。"],["der Käse","起司","Ich kaufe Käse.","我買起司。"],["die Flasche, -n","瓶子","eine Flasche Wasser","一瓶水"],["suchen","找","Ich suche einen Rucksack.","我在找背包。"],["brauchen","需要","Wir brauchen Brot.","我們需要麵包。"],["die Party, -s","派對","Die Party ist am Freitag.","派對在星期五。"]],
+ dlg:{t:"Im Kaufhaus",z:"在百貨公司",l:[["Verkäufer","Guten Tag! Suchen Sie etwas?","您好！您在找什麼嗎？"],["Mei","Ja, ich suche einen Rucksack.","是的，我在找背包。"],["Verkäufer","Wie finden Sie den Rucksack hier?","您覺得這個背包怎麼樣？"],["Mei","Den finde ich schön. Was kostet er?","我覺得很好看。多少錢？"],["Verkäufer","Er kostet 45 Euro.","45 歐元。"],["Mei","Gut, den nehme ich. Haben Sie auch Mützen?","好，我買了。您們也有毛帽嗎？"],["Verkäufer","Ja, wir haben Mützen in Rot und Blau.","有，有紅色和藍色的。"],["Mei","Dann nehme ich eine Mütze in Blau.","那我要一頂藍色的。"]]},
+ rd:{t:"Lena macht eine Party",z:"Lena 辦派對",de:"Lena macht heute eine Party. Sie braucht viele Sachen. Sie kauft einen Kuchen, eine Flasche Saft und ein Brot. Sie braucht auch einen Salat und Käse. Ihr Freund Tom bringt einen Tisch und Stühle. Lena sucht noch einen Lautsprecher für die Musik. Hat Jonas einen?",zh:"Lena 今天辦派對，她需要很多東西。她買了一個蛋糕、一瓶果汁和一條麵包，還需要沙拉和起司。她的朋友 Tom 會帶一張桌子和幾張椅子。Lena 還在找放音樂用的喇叭。Jonas 有嗎？"}},
+k9:{v:[["die Familie, -n","家庭","Meine Familie ist groß.","我家人很多。"],["der Vater, ¨","父親","Mein Vater ist 60.","我爸爸 60 歲。"],["die Mutter, ¨","母親","Meine Mutter kocht gut.","我媽媽很會煮飯。"],["der Bruder, ¨","兄弟","Mein Bruder wohnt in Tainan.","我哥哥住在台南。"],["die Schwester, -n","姊妹","Meine Schwester ist Ärztin.","我姊姊是醫生。"],["der Sohn, ¨-e","兒子","Ihr Sohn heißt Leo.","她的兒子叫 Leo。"],["die Tochter, ¨","女兒","Seine Tochter ist fünf.","他的女兒五歲。"],["der Mann, ¨-er","丈夫；男人","Ihr Mann kommt aus Italien.","她先生來自義大利。"],["die Frau, -en","妻子；女人","Seine Frau heißt Yuki.","他太太叫 Yuki。"],["die Großeltern (Pl.)","祖父母","Die Großeltern wohnen auf dem Land.","祖父母住在鄉下。"]],
+ dlg:{t:"Familienfotos",z:"家庭照片",l:[["Lena","Ist das deine Familie?","這是妳的家人嗎？"],["Mei","Ja. Das sind meine Eltern.","對，這是我爸媽。"],["Lena","Und wer ist das?","那這是誰？"],["Mei","Das ist mein Bruder. Seine Frau heißt Yuki.","這是我哥哥。他太太叫 Yuki。"],["Lena","Und das Kind?","那小孩呢？"],["Mei","Das ist ihr Sohn. Sein Name ist Leo.","那是他們的兒子，他叫 Leo。"],["Lena","Er ist so süß! Wo wohnt eure Familie?","他好可愛！你們家住在哪？"],["Mei","Unsere Familie wohnt in Taichung.","我們家住在台中。"]]},
+ rd:{t:"Die Familie von Jonas",z:"Jonas 的家人",de:"Jonas hat eine große Familie. Sein Vater ist Arzt und seine Mutter ist Lehrerin. Seine Schwester heißt Anna. Ihr Mann kommt aus Italien. Ihre Kinder sprechen Deutsch und Italienisch. Jonas liebt seine Familie. Am Sonntag besucht er oft seine Eltern.",zh:"Jonas 家人很多。他爸爸是醫生，媽媽是老師。他的姊姊叫 Anna，Anna 的先生來自義大利。他們的孩子會說德語和義大利語。Jonas 很愛他的家人，星期天常去探望父母。"}},
+k10:{v:[["der Termin, -e","預約","Ich habe einen Termin.","我有一個預約。"],["die Uhr, -en","時鐘；…點","Es ist acht Uhr.","現在八點。"],["die Woche, -n","週","Die Woche hat sieben Tage.","一週有七天。"],["der Tag, -e","天","Guten Tag!","您好！（日安）"],["der Monat, -e","月","Der Monat hat 30 Tage.","這個月有 30 天。"],["das Jahr, -e","年","Ich bin 28 Jahre alt.","我 28 歲。"],["der Geburtstag, -e","生日","Wann hast du Geburtstag?","你生日什麼時候？"],["der Urlaub, -e","假期","Im Juli habe ich Urlaub.","我七月放假。"],["beginnen","開始","Der Film beginnt um acht.","電影八點開始。"],["die Praxis, Praxen","診所","Die Praxis ist am Montag zu.","診所星期一休息。"]],
+ dlg:{t:"Ein Termin beim Arzt",z:"打電話預約看診",l:[["Praxis","Praxis Dr. Berg, guten Tag.","這裡是 Berg 醫師診所，您好。"],["Mei","Guten Tag, ich brauche einen Termin, bitte.","您好，我想預約。"],["Praxis","Geht es am Donnerstag?","星期四可以嗎？"],["Mei","Am Donnerstag arbeite ich bis 17 Uhr.","星期四我工作到五點。"],["Praxis","Und um halb sechs?","那五點半呢？"],["Mei","Ja, das passt.","可以，這時間可以。"],["Praxis","Gut, also am Donnerstag, dem zwölften März, um 17:30 Uhr.","好的，那就是三月十二日星期四，17:30。"],["Mei","Vielen Dank. Auf Wiederhören!","非常感謝，再見！（電話用語）"]]},
+ rd:{t:"Meine Woche",z:"我的一週",de:"Von Montag bis Freitag arbeite ich. Mein Arbeitstag beginnt um halb neun und endet um fünf Uhr. Am Dienstag und am Donnerstag lerne ich Deutsch, von 18 bis 20 Uhr. Am Samstag schlafe ich lange. Im Sommer habe ich Urlaub. Im Juli fliege ich nach Taiwan, denn am 20. Juli hat meine Mutter Geburtstag.",zh:"我從星期一工作到星期五。我的上班時間從八點半開始，五點結束。星期二和星期四我學德語，從晚上六點到八點。星期六我會睡很晚。夏天我有假期，七月我要飛回台灣，因為七月二十日是我媽媽的生日。"}},
+k11:{v:[["aufstehen","起床","Ich stehe früh auf.","我很早起床。"],["einkaufen","購物","Wir kaufen am Samstag ein.","我們星期六去買東西。"],["anrufen","打電話","Ich rufe meine Mutter an.","我打電話給我媽媽。"],["fernsehen","看電視","Er sieht oft fern.","他常看電視。"],["mitkommen","一起來","Kommst du mit?","你要一起來嗎？"],["abholen","接（人）","Ich hole dich ab.","我去接你。"],["aufräumen","整理","Ich räume mein Zimmer auf.","我整理我的房間。"],["einladen","邀請","Ich lade dich ein.","我請客／我邀請你。"],["früh / spät","早／晚","Es ist schon spät.","已經很晚了。"],["der Morgen / der Abend","早上／晚上","Am Abend lese ich.","我晚上看書。"]],
+ dlg:{t:"Mein Tag",z:"我的一天",l:[["Lena","Wann stehst du morgens auf?","妳早上幾點起床？"],["Mei","Ich stehe um sechs Uhr auf.","我六點起床。"],["Lena","So früh! Was machst du dann?","這麼早！然後做什麼？"],["Mei","Ich räume die Küche auf und kaufe ein.","我整理廚房，然後去買東西。"],["Lena","Und am Abend? Siehst du fern?","晚上呢？看電視嗎？"],["Mei","Nein, am Abend rufe ich meine Mutter an.","不，晚上我打電話給我媽。"],["Lena","Am Samstag gehen wir aus. Kommst du mit?","星期六我們要出去玩，妳要一起來嗎？"],["Mei","Ja, gern! Wann fängt die Party an?","好啊！派對幾點開始？"],["Lena","Um neun. Ich hole dich ab!","九點。我去接妳！"]]},
+ rd:{t:"Ein Tag von Jonas",z:"Jonas 的一天",de:"Jonas steht um acht Uhr auf. Er frühstückt nicht, er trinkt nur Kaffee. Um neun Uhr fährt sein Bus ab. Im Café fängt seine Arbeit um zehn Uhr an. Am Nachmittag kauft er im Supermarkt ein. Am Abend lädt er Freunde ein und sie kochen zusammen. Um Mitternacht macht er das Licht aus.",zh:"Jonas 八點起床。他不吃早餐，只喝咖啡。他的公車九點開。他在咖啡館的工作十點開始。下午他去超市買東西。晚上他邀朋友來，大家一起煮飯。半夜十二點他關燈睡覺。"}},
+k12:{v:[["wandern","健行","Wir wandern gern.","我們喜歡健行。"],["schwimmen","游泳","Ich kann schwimmen.","我會游泳。"],["das Schwimmbad, ¨-er","游泳池","Das Schwimmbad ist neu.","游泳池是新的。"],["rauchen","抽菸","Hier darf man nicht rauchen.","這裡不能抽菸。"],["parken","停車","Darf ich hier parken?","我可以停這裡嗎？"],["duschen","淋浴","Ich dusche am Morgen.","我早上淋浴。"],["das Getränk, -e","飲料","Getränke gibt es im Café.","咖啡廳有賣飲料。"],["die Regel, -n","規則","Das ist die Regel.","這是規定。"],["allein","單獨","Ich wohne allein.","我一個人住。"],["offen / geschlossen","營業中／關門","Das Café ist offen.","咖啡廳有開。"]],
+ dlg:{t:"Am Wochenende wandern?",z:"週末去健行？",l:[["Jonas","Willst du am Samstag wandern?","妳星期六想去健行嗎？"],["Mei","Ich möchte gern, aber ich muss arbeiten.","我很想，但我得工作。"],["Jonas","Und am Sonntag? Kannst du da?","那星期天呢？那天可以嗎？"],["Mei","Ja, am Sonntag kann ich. Darf Lena auch mitkommen?","可以，星期天可以。Lena 也可以一起來嗎？"],["Jonas","Klar! Aber wir müssen früh aufstehen.","當然！不過我們得早起。"],["Mei","Wie früh?","多早？"],["Jonas","Um sechs. Wir sollen auch viel Wasser mitnehmen.","六點。我們也應該多帶點水。"],["Mei","Okay. Ich kann Sandwiches machen.","好，我可以做三明治。"]]},
+ rd:{t:"Regeln im Schwimmbad",z:"游泳池規定",de:"Im Schwimmbad gibt es Regeln. Man darf hier nicht rauchen. Kinder unter zehn Jahren dürfen nicht allein schwimmen. Man muss vor dem Schwimmen duschen. Man kann Getränke im Café kaufen. Hunde dürfen nicht ins Schwimmbad. Das Schwimmbad ist von 8 bis 20 Uhr offen.",zh:"游泳池有規定。這裡不能抽菸。十歲以下的兒童不可以單獨游泳。游泳前必須淋浴。可以在咖啡廳買飲料。狗不能進入游泳池。游泳池開放時間是早上八點到晚上八點。"}},
+k13:{v:[["der Arzt / die Ärztin","醫生","Die Ärztin ist sehr nett.","那位醫生很親切。"],["die Tablette, -n","藥片","Nimm eine Tablette!","吃一顆藥吧！"],["der Kopf, ¨-e","頭","Mein Kopf tut weh.","我頭痛。"],["die Kopfschmerzen (Pl.)","頭痛","Ich habe Kopfschmerzen.","我頭痛。"],["das Fieber","發燒","Hast du Fieber?","你發燒嗎？"],["der Mund, ¨-er","嘴巴","Machen Sie den Mund auf.","請張開嘴巴。"],["das Wort, ¨-er","單字","Lernt jeden Tag zehn Wörter!","每天學十個單字！"],["der Fehler, -","錯誤","Fehler sind normal.","犯錯很正常。"],["langsam / schnell","慢／快","Sprich bitte langsam!","請說慢一點！"],["pünktlich","準時","Der Zug ist pünktlich.","火車很準時。"]],
+ dlg:{t:"Beim Arzt",z:"看醫生",l:[["Ärztin","Guten Tag, Frau Lin. Nehmen Sie bitte Platz.","林小姐您好，請坐。"],["Mei","Danke. Ich habe Kopfschmerzen.","謝謝。我頭痛。"],["Ärztin","Machen Sie bitte den Mund auf.","請張開嘴巴。"],["Ärztin","Gut. Trinken Sie viel Wasser und schlafen Sie viel.","好。請多喝水、多睡覺。"],["Mei","Muss ich Tabletten nehmen?","我需要吃藥嗎？"],["Ärztin","Ja, nehmen Sie die Tabletten dreimal am Tag.","要，這個藥一天吃三次。"],["Ärztin","Und kommen Sie bitte am Freitag wieder.","請星期五再來一次。"],["Mei","Vielen Dank! Auf Wiedersehen.","非常感謝！再見。"]]},
+ rd:{t:"Tipps von Frau Koch",z:"Koch 老師的建議",de:"Frau Koch hat Tipps für ihre Studenten: Lernt jeden Tag zehn Wörter! Hört deutsche Musik und seht deutsche Filme! Sprecht im Kurs nur Deutsch! Habt keine Angst vor Fehlern! Und seid bitte pünktlich! Frau Koch sagt auch zu Mei: „Mei, lies jeden Tag einen kurzen Text!“",zh:"Koch 老師給學生一些建議：每天學十個單字！聽德語歌、看德語電影！上課只說德語！不要怕犯錯！還有請準時！Koch 老師也對 Mei 說：「Mei，每天讀一篇短文吧！」"}},
+k14:{v:[["der Bus, -se","公車","Der Bus kommt.","公車來了。"],["die U-Bahn, -en","地鐵","Ich fahre mit der U-Bahn.","我搭地鐵。"],["der Zug, ¨-e","火車","Der Zug ist voll.","火車客滿。"],["das Auto, -s","汽車","Mit dem Auto geht es schnell.","開車比較快。"],["das Büro, -s","辦公室","Ich bin im Büro.","我在辦公室。"],["die Bank, -en","銀行","Die Bank ist heute zu.","銀行今天沒開。"],["die Buchhandlung, -en","書店","Die Buchhandlung ist neu.","這家書店是新開的。"],["das Geschenk, -e","禮物","Das Geschenk ist für dich.","這禮物是給你的。"],["helfen + Dat.","幫忙","Ich helfe dir.","我幫你。"],["gefallen + Dat.","（某物）討人喜歡","Das gefällt mir.","我喜歡這個。"]],
+ dlg:{t:"Wie kommst du zur Arbeit?",z:"你怎麼去上班？",l:[["Lena","Wie kommst du zur Arbeit?","妳怎麼去上班？"],["Mei","Mit dem Fahrrad. Und du?","騎腳踏車。妳呢？"],["Lena","Ich fahre mit der U-Bahn. Ich wohne seit einem Monat bei meiner Schwester.","我搭地鐵。我一個月前開始住我姊姊家。"],["Mei","Wo wohnt deine Schwester?","妳姊姊住哪裡？"],["Lena","In Pankow. Nach der Arbeit gehe ich oft zum Sport.","在 Pankow。下班後我常去運動。"],["Mei","Ich gehe auch gern zum Sport. Gehen wir mal zusammen?","我也喜歡去運動。我們找天一起去？"],["Lena","Gern! Ich hole dich vom Büro ab.","好啊！我去辦公室接妳。"]]},
+ rd:{t:"Ein Geschenk für Mama",z:"給媽媽的禮物",de:"Morgen hat Lenas Mutter Geburtstag. Lena fährt mit dem Bus zur Buchhandlung. Die Buchhandlung ist gegenüber dem Bahnhof. Die Verkäuferin hilft Lena, und Lena kauft ein Buch. Nach dem Einkauf geht sie zum Café. Dort trifft sie Mei. Mei kommt gerade vom Deutschkurs. Sie trinken Kaffee mit Milch und reden lange.",zh:"明天是 Lena 媽媽的生日。Lena 搭公車去書店，書店在火車站對面。店員幫了 Lena，她買了一本書。買完後她去咖啡館，在那裡遇到 Mei。Mei 剛從德語課過來。她們喝著拿鐵聊了很久。"}},
+k15:{v:[["die Post","郵局","Die Post ist am Marktplatz.","郵局在市集廣場。"],["der Bahnhof, ¨-e","火車站","Der Bahnhof ist groß.","火車站很大。"],["der Marktplatz, ¨-e","市集廣場","Der Marktplatz ist schön.","市集廣場很漂亮。"],["der Supermarkt, ¨-e","超市","Ich bin im Supermarkt.","我在超市。"],["die Apotheke, -n","藥局","Die Apotheke ist neben der Bank.","藥局在銀行旁邊。"],["geradeaus","直走","Gehen Sie geradeaus!","請直走！"],["links / rechts","左／右","Dann gehen Sie rechts.","然後右轉。"],["neben","在…旁邊","Die Bank ist neben der Post.","銀行在郵局旁邊。"],["weit / nah","遠／近","Ist das weit?","那很遠嗎？"],["die Minute, -n","分鐘","Nur fünf Minuten.","只要五分鐘。"]],
+ dlg:{t:"Wo ist die Post?",z:"郵局在哪裡？",l:[["Mei","Entschuldigung, wo ist die Post?","不好意思，郵局在哪裡？"],["Mann","Die Post? Sie ist am Marktplatz.","郵局？在市集廣場。"],["Mei","Und wie komme ich zum Marktplatz?","我要怎麼去市集廣場？"],["Mann","Gehen Sie hier geradeaus und dann links.","從這裡直走，然後左轉。"],["Mei","Ist das weit? Ich muss auch noch zur Bank.","遠嗎？我也還要去銀行。"],["Mann","Nein, nur fünf Minuten. Die Bank ist neben der Post.","不遠，五分鐘。銀行就在郵局旁邊。"],["Mei","Super, danke! Danach gehe ich nach Hause.","太好了，謝謝！之後我就回家。"]]},
+ rd:{t:"Wo sind alle?",z:"大家都在哪？",de:"Es ist Samstag. Mei ist zu Hause. Jonas ist nicht da, er ist im Fitnessstudio. Lena ist beim Arzt. Frau Koch fliegt heute nach Spanien. Herr Weber geht mit seinen Kindern ins Kino. Am Abend gehen alle zu Mei, denn sie kocht für ihre Freunde.",zh:"今天是星期六。Mei 在家。Jonas 不在，他在健身房。Lena 在看醫生。Koch 老師今天飛去西班牙。Weber 先生帶孩子去看電影。晚上大家都去 Mei 家，因為她要煮飯請朋友吃。"}},
+k16:{v:[["der Schal, -s","圍巾","Der Schal ist warm.","這圍巾很暖。"],["die Oma / der Opa","奶奶／爺爺","Meine Oma ist 80.","我奶奶 80 歲。"],["die E-Mail, -s","電子郵件","Ich schreibe eine E-Mail.","我寫一封電子郵件。"],["schreiben","寫","Schreib mir bald!","快點寫信給我！"],["besuchen","拜訪","Ich besuche dich.","我去看你。"],["lieben","愛","Ich liebe dich.","我愛你。"],["vermissen","想念","Ich vermisse dich.","我想你。"],["danken + Dat.","感謝","Ich danke Ihnen.","我感謝您。"],["schmecken + Dat.","嚐起來（好吃）","Das schmeckt mir.","我覺得這很好吃。"],["Alles Gute!","祝一切都好","Alles Gute zum Geburtstag!","生日快樂！"]],
+ dlg:{t:"Mein Geburtstag",z:"我的生日",l:[["Jonas","Hallo Mei, wie geht es dir?","嗨 Mei，妳好嗎？"],["Mei","Mir geht es gut! Heute habe ich Geburtstag.","我很好！今天是我生日。"],["Jonas","Oh, alles Gute! Ich habe ein Geschenk für dich.","喔，生日快樂！我有禮物要給妳。"],["Mei","Für mich? Danke! Was ist das?","給我的？謝謝！是什麼？"],["Jonas","Ein Schal. Gefällt er dir?","一條圍巾。妳喜歡嗎？"],["Mei","Ja, er gefällt mir sehr!","喜歡，非常喜歡！"],["Jonas","Lena kommt auch. Ich rufe sie gleich an.","Lena 也會來，我馬上打給她。"],["Mei","Super, ich koche heute für euch!","太好了，今天我煮飯給你們吃！"]]},
+ rd:{t:"Eine E-Mail an Oma",z:"寫給奶奶的信",de:"Liebe Oma, wie geht es dir? Mir geht es gut. Berlin gefällt mir sehr und meine Freunde sind toll. Jonas hilft mir oft beim Deutschlernen. Lena kenne ich aus dem Kurs, ich besuche sie oft. Im August besuche ich dich in Taiwan! Ich vermisse euch alle. Viele Grüße, deine Mei",zh:"親愛的奶奶，您好嗎？我很好。我很喜歡柏林，我的朋友們也都很棒。Jonas 常幫我學德語。Lena 是我在課堂上認識的，我常去找她。八月我會回台灣看您！我很想念大家。祝好，您的 Mei"}},
+k17:{v:[["das Theater, -","劇院","Das Theater ist alt.","這座劇院很古老。"],["die Idee, -n","主意","Gute Idee!","好主意！"],["die Stunde, -n","小時","Ich habe eine Stunde Zeit.","我有一小時的時間。"],["das Hobby, -s","嗜好","Mein Hobby ist Musik.","我的嗜好是音樂。"],["die Band, -s","樂團","Die Band spielt heute.","樂團今天演出。"],["das Klavier, -e","鋼琴","Ich spiele Klavier.","我彈鋼琴。"],["üben","練習","Wir üben jeden Tag.","我們每天練習。"],["manchmal","有時候","Manchmal koche ich.","我有時候會煮飯。"],["zuerst","首先","Zuerst lerne ich.","我先讀書。"],["der Spaß","樂趣","Das macht Spaß!","這很好玩！"]],
+ dlg:{t:"Kino oder Theater?",z:"電影還是戲劇？",l:[["Lena","Gehen wir heute ins Kino oder ins Theater?","我們今天去看電影還是看戲？"],["Mei","Ins Kino, denn das Theater ist sehr teuer.","看電影吧，因為看戲很貴。"],["Lena","Okay. Zuerst essen wir, dann gehen wir ins Kino.","好。我們先吃飯，然後去看電影。"],["Mei","Gute Idee! Aber ich habe nur eine Stunde Zeit.","好主意！不過我只有一小時。"],["Lena","Kein Problem. Wir essen schnell und dann fahren wir mit dem Bus.","沒問題。我們吃快一點，然後搭公車。"],["Mei","Kommt Jonas auch?","Jonas 也來嗎？"],["Lena","Nein, er ist müde und er muss morgen früh arbeiten.","不來，他很累，而且明天一早要上班。"]]},
+ rd:{t:"Mein Hobby",z:"我的嗜好",de:"Ich heiße Jonas und ich mache gern Musik. Ich spiele Gitarre, aber ich spiele nicht Klavier. Am Wochenende spiele ich in einer Band, denn Musik macht mir Spaß. Zuerst üben wir zwei Stunden, dann trinken wir zusammen etwas. Manchmal spielen wir in einem Café oder in einer Bar. Wir verdienen nicht viel Geld, aber es ist toll!",zh:"我叫 Jonas，我喜歡玩音樂。我彈吉他，但不彈鋼琴。週末我在一個樂團演奏，因為音樂讓我很快樂。我們先練習兩小時，然後一起喝點東西。有時候我們在咖啡館或酒吧表演。賺的錢不多，但很棒！"}},
+k18:{v:[["das Wochenende, -n","週末","Am Wochenende schlafe ich lange.","週末我睡很晚。"],["das Schloss, ¨-er","城堡；宮殿","Das Schloss ist sehr alt.","這座宮殿非常古老。"],["der Hafen, ¨","港口","Der Hafen ist groß.","港口很大。"],["das Schiff, -e","船","Wir sind mit dem Schiff gefahren.","我們搭了船。"],["treffen → getroffen","遇見、碰面","Ich habe Sara getroffen.","我和 Sara 見面了。"],["bleiben → geblieben","留下","Ich bin zu Hause geblieben.","我待在家。"],["gestern","昨天","Gestern habe ich gekocht.","我昨天煮了飯。"],["lecker","好吃的","Das ist lecker!","這很好吃！"],["die Postkarte, -n","明信片","Ich schreibe eine Postkarte.","我寫一張明信片。"],["reden","聊天","Wir haben lange geredet.","我們聊了很久。"]],
+ dlg:{t:"Wie war dein Wochenende?",z:"週末過得如何？",l:[["Lena","Was hast du am Wochenende gemacht?","妳週末做了什麼？"],["Mei","Ich bin nach Potsdam gefahren.","我去了波茨坦。"],["Lena","Schön! Was hast du dort gesehen?","不錯！妳在那裡看了什麼？"],["Mei","Ich habe das Schloss besucht und viele Fotos gemacht.","我參觀了宮殿，還拍了很多照片。"],["Lena","Hast du auch etwas gegessen?","妳有吃東西嗎？"],["Mei","Ja, ich habe Kuchen gegessen und Kaffee getrunken. Und du?","有，我吃了蛋糕、喝了咖啡。妳呢？"],["Lena","Ich bin zu Hause geblieben und habe ein Buch gelesen.","我待在家裡看了一本書。"]]},
+ rd:{t:"Eine Postkarte aus Hamburg",z:"來自漢堡的明信片",de:"Hallo Jonas! Ich bin jetzt in Hamburg. Gestern bin ich mit dem Zug gekommen. Heute Morgen habe ich den Hafen besucht. Dann habe ich ein Fischbrötchen gegessen – sehr lecker! Am Nachmittag bin ich mit dem Schiff gefahren. Am Abend habe ich meine Freundin Sara getroffen. Wir haben lange geredet. Bis bald, Mei",zh:"嗨 Jonas！我現在在漢堡。我昨天搭火車來的。今天早上我去了港口，然後吃了一個魚肉麵包，超好吃！下午我搭了船。晚上我和朋友 Sara 見面，我們聊了很久。下次見，Mei"}},
+k19:{v:[["krank / gesund","生病的／健康的","Ich war krank.","我生病了。"],["der Test, -s","測驗","Der Test war gestern.","測驗是昨天。"],["schwer / leicht","難／簡單","Der Test war leicht.","測驗很簡單。"],["früher","以前","Früher war ich Lehrer.","我以前是老師。"],["der Rentner / die Rentnerin","退休者","Er ist jetzt Rentner.","他現在退休了。"],["das Haus, ¨-er","房子","Das Haus war alt.","那間房子很舊。"],["auf dem Land","在鄉下","Wir wohnen auf dem Land.","我們住在鄉下。"],["der Hund, -e","狗","Der Hund heißt Bello.","這隻狗叫 Bello。"],["letzte Woche","上週","Letzte Woche war ich in Wien.","上週我在維也納。"],["das Glück","幸運","Viel Glück!","祝好運！"]],
+ dlg:{t:"Ich war krank",z:"我生病了",l:[["Frau Koch","Mei, wo warst du gestern?","Mei，妳昨天去哪了？"],["Mei","Ich war krank. Ich hatte Fieber.","我生病了，發燒。"],["Frau Koch","Oh, das tut mir leid! Wie geht es dir jetzt?","喔，真遺憾！現在好點了嗎？"],["Mei","Besser, danke. Was hatten wir gestern im Kurs?","好多了，謝謝。我們昨天上課上了什麼？"],["Frau Koch","Wir hatten einen Test.","我們有小考。"],["Mei","Oh nein! War der Test schwer?","喔不！考試難嗎？"],["Frau Koch","Nein, er war leicht. Du kannst ihn morgen schreiben.","不難，很簡單。妳明天可以補考。"]]},
+ rd:{t:"Früher und heute",z:"以前和現在",de:"Früher war Herr Weber Lehrer. Er hatte nicht viel Zeit, denn er war immer in der Schule. Die Familie hatte ein Haus auf dem Land. Das Haus war alt, aber schön. Heute ist Herr Weber Rentner. Er hat jetzt viel Zeit. Er wohnt in Köln und hat einen Hund.",zh:"Weber 先生以前是老師。他沒什麼時間，因為他總是在學校。他們家以前在鄉下有一間房子，房子很舊但很漂亮。現在 Weber 先生退休了，他有很多時間。他住在科隆，養了一隻狗。"}},
+k20:{v:[["ruhig / laut","安靜／吵","Die Straße ist ruhig.","這條街很安靜。"],["wichtig","重要的","Das ist wichtig.","這很重要。"],["groß / klein","大／小","Die Stadt ist groß.","這城市很大。"],["scharf","辣的","Die Suppe ist scharf.","這湯很辣。"],["süß","甜的；可愛的","Der Kuchen ist süß.","蛋糕很甜。"],["das Lieblingsessen","最愛的食物","Mein Lieblingsessen ist Pizza.","我最愛的食物是披薩。"],["die Nudeln (Pl.)","麵","Ich esse gern Nudeln.","我喜歡吃麵。"],["die Pasta","義大利麵","Pasta ist lecker.","義大利麵很好吃。"],["trotzdem","儘管如此","Es regnet, trotzdem gehe ich.","下雨了，我還是要去。"],["finden","覺得","Ich finde das gut.","我覺得這很好。"]],
+ dlg:{t:"Welche Wohnung?",z:"選哪一間公寓？",l:[["Mei","Ich habe zwei Wohnungen gefunden.","我找到兩間公寓。"],["Lena","Und? Welche ist besser?","然後呢？哪一間比較好？"],["Mei","Die Wohnung in Mitte ist größer, aber sie ist teurer.","Mitte 那間比較大，但比較貴。"],["Lena","Und die Wohnung in Pankow?","那 Pankow 那間呢？"],["Mei","Sie ist kleiner, aber billiger und ruhiger.","比較小，但比較便宜，也比較安靜。"],["Lena","Was ist dir wichtiger?","對妳來說什麼比較重要？"],["Mei","Ich wohne lieber ruhig. Und am liebsten möchte ich einen Balkon!","我比較喜歡住得安靜。最好要有陽台！"],["Lena","Pankow hat einen Balkon? Dann nimm Pankow!","Pankow 有陽台？那就選 Pankow！"]]},
+ rd:{t:"Lieblingsessen",z:"最愛的食物",de:"Die Freunde reden über Essen. Jonas isst gern Pizza, aber am liebsten isst er Pasta. Lena trinkt lieber Tee als Kaffee. Mei findet das Brot in Deutschland sehr gut, aber das Essen in Taiwan findet sie besser. Mei kocht am besten von allen. Für Jonas ist ihre Nudelsuppe zu scharf, aber er isst sie trotzdem gern.",zh:"朋友們在聊食物。Jonas 喜歡吃披薩，但最喜歡的是義大利麵。比起咖啡，Lena 比較喜歡喝茶。Mei 覺得德國的麵包很好吃，但她覺得台灣的食物更好吃。大家之中 Mei 最會煮飯。對 Jonas 來說，她的湯麵太辣了，但他還是很喜歡吃。"}}
+};
+
+/* ===== 每章新增題型：閱讀理解 tf、句子重組 order、配對 match ===== */
+const Q2 = {
+k1:[{t:'tf',q:'Mei ist 30 Jahre alt.',a:false,e:'Sie ist 28 Jahre alt.'},{t:'tf',q:'Mei ist Ingenieurin.',a:true,e:'Mei ist Ingenieurin.'},{t:'tf',q:'Die Lehrerin ist sehr nett.',a:true,e:'Die Lehrerin ist sehr nett.'},{t:'order',q:'我們來自台灣。',w:['Wir','sind','aus','Taiwan'],e:'Wir sind aus Taiwan.'},{t:'match',q:'人稱與 sein 配對',p:[['ich','bin'],['du','bist'],['er','ist'],['wir','sind'],['ihr','seid']],e:''}],
+k2:[{t:'tf',q:'Thomas arbeitet bei der Post.',a:true,e:'Er arbeitet bei der Post.'},{t:'tf',q:'Sabine ist Lehrerin.',a:false,e:'Sie arbeitet als Ärztin.'},{t:'tf',q:'Die Kinder lernen Englisch.',a:true,e:'Sie lernen Englisch in der Schule.'},{t:'order',q:'你在哪裡工作？',w:['Wo','arbeitest','du'],e:'Wo arbeitest du?'},{t:'match',q:'動詞配對：選出 du 的形式',p:[['wohnen','wohnst'],['arbeiten','arbeitest'],['heißen','heißt'],['tanzen','tanzt'],['lernen','lernst']],e:''}],
+k3:[{t:'tf',q:'Am Morgen trinkt Mei Tee.',a:false,e:'Sie trinkt Kaffee.'},{t:'tf',q:'Am Nachmittag macht Mei Fotos.',a:true,e:'Am Nachmittag macht sie Fotos am Brandenburger Tor.'},{t:'tf',q:'Am Abend telefoniert sie mit ihrer Mutter.',a:true,e:'Sie telefoniert mit ihrer Mutter in Taiwan.'},{t:'order',q:'今天我學德語。（以 Heute 開頭）',w:['Heute','lerne','ich','Deutsch'],e:'Heute lerne ich Deutsch.'},{t:'order',q:'你住在柏林嗎？',w:['Wohnst','du','in','Berlin'],e:'Wohnst du in Berlin?'},{t:'match',q:'疑問詞配對',p:[['Wer?','誰'],['Wo?','在哪裡'],['Woher?','從哪裡'],['Wann?','什麼時候'],['Warum?','為什麼']],e:''}],
+k4:[{t:'tf',q:'Das Zimmer von Jonas ist groß.',a:false,e:'Es ist klein, aber gemütlich.'},{t:'tf',q:'Der Tisch ist aus Holz.',a:true,e:'Der Tisch ist aus Holz.'},{t:'tf',q:'Die Lampe ist blau.',a:false,e:'Die Lampe ist rot.'},{t:'order',q:'這張桌子是新的。',w:['Der','Tisch','ist','neu'],e:'Der Tisch ist neu.'},{t:'match',q:'名詞與冠詞配對',p:[['Zeitung','die'],['Mädchen','das'],['Montag','der'],['Kühlschrank','der'],['Museum','das']],e:''}],
+k5:[{t:'tf',q:'Im Kurs sind 15 Studenten.',a:true,e:'Im Kurs sind 15 Studenten.'},{t:'tf',q:'Im Raum gibt es zehn Tische.',a:false,e:'Es gibt fünf Tische.'},{t:'tf',q:'Es gibt zwei Lehrerinnen.',a:true,e:'Frau Koch und Frau Brandt.'},{t:'order',q:'我有兩個孩子。',w:['Ich','habe','zwei','Kinder'],e:'Ich habe zwei Kinder.'},{t:'match',q:'單數與複數配對',p:[['das Kind','die Kinder'],['der Stuhl','die Stühle'],['die Frau','die Frauen'],['das Auto','die Autos'],['der Apfel','die Äpfel']],e:''}],
+k6:[{t:'tf',q:'Die Wohnung von Jonas ist teuer.',a:false,e:'Sie ist klein und nicht teuer.'},{t:'tf',q:'Die Wohnung hat keinen Balkon.',a:true,e:'Es gibt auch keinen Balkon.'},{t:'tf',q:'Jonas hat einen Fernseher.',a:false,e:'Jonas hat keinen Fernseher.'},{t:'order',q:'我今天不工作。',w:['Ich','arbeite','heute','nicht'],e:'Ich arbeite heute nicht.'},{t:'match',q:'選 nicht 或 kein 的正確形式',p:[['Ich habe ___ Hund.','keinen'],['Das ist ___ teuer.','nicht'],['Wir haben ___ Zeit.','keine'],['Er kommt heute ___.','nicht'],['Das ist ___ Auto.','kein']],e:''}],
+k7:[{t:'tf',q:'Max ist zwölf Jahre alt.',a:true,e:'Er ist zwölf Jahre alt.'},{t:'tf',q:'Lisa fährt mit dem Bus zur Schule.',a:false,e:'Sie fährt mit dem Fahrrad.'},{t:'tf',q:'Lisa hilft Max bei den Hausaufgaben.',a:true,e:'Sie hilft Max bei den Hausaufgaben.'},{t:'order',q:'你搭公車嗎？',w:['Fährst','du','mit','dem','Bus'],e:'Fährst du mit dem Bus?'},{t:'match',q:'原形配對 er/sie/es 形式',p:[['fahren','fährt'],['essen','isst'],['lesen','liest'],['nehmen','nimmt'],['sehen','sieht']],e:''}],
+k8:[{t:'tf',q:'Lena kauft einen Kuchen.',a:true,e:'Sie kauft einen Kuchen.'},{t:'tf',q:'Tom bringt einen Lautsprecher.',a:false,e:'Tom bringt einen Tisch und Stühle.'},{t:'tf',q:'Lena braucht auch Käse.',a:true,e:'Sie braucht auch einen Salat und Käse.'},{t:'order',q:'我買一顆蘋果。',w:['Ich','kaufe','einen','Apfel'],e:'Ich kaufe einen Apfel.'},{t:'match',q:'主格 → 受格',p:[['der','den'],['ein（陽性）','einen'],['die','die'],['das','das'],['kein（陽性）','keinen']],e:''}],
+k9:[{t:'tf',q:'Der Vater von Jonas ist Lehrer.',a:false,e:'Sein Vater ist Arzt.'},{t:'tf',q:'Annas Mann kommt aus Italien.',a:true,e:'Ihr Mann kommt aus Italien.'},{t:'tf',q:'Am Sonntag besucht Jonas oft seine Eltern.',a:true,e:'Am Sonntag besucht er oft seine Eltern.'},{t:'order',q:'我在找我的鑰匙。',w:['Ich','suche','meinen','Schlüssel'],e:'Ich suche meinen Schlüssel.'},{t:'match',q:'人稱與所有格配對',p:[['ich','mein'],['du','dein'],['er','sein'],['wir','unser'],['ihr（你們）','euer']],e:''}],
+k10:[{t:'tf',q:'Die Person arbeitet am Samstag.',a:false,e:'Sie arbeitet von Montag bis Freitag.'},{t:'tf',q:'Der Deutschkurs ist am Dienstag und Donnerstag.',a:true,e:'Am Dienstag und am Donnerstag lerne ich Deutsch.'},{t:'tf',q:'Der Arbeitstag beginnt um 8:30 Uhr.',a:true,e:'halb neun = 8:30'},{t:'order',q:'課程九點開始。',w:['Der','Kurs','beginnt','um','neun','Uhr'],e:'Der Kurs beginnt um neun Uhr.'},{t:'match',q:'時間配對（口語說法）',p:[['14:15','Viertel nach zwei'],['9:30','halb zehn'],['7:45','Viertel vor acht'],['11:30','halb zwölf'],['6:00','sechs Uhr']],e:''}],
+k11:[{t:'tf',q:'Jonas frühstückt viel.',a:false,e:'Er frühstückt nicht, er trinkt nur Kaffee.'},{t:'tf',q:'Seine Arbeit fängt um zehn Uhr an.',a:true,e:'Im Café fängt seine Arbeit um zehn Uhr an.'},{t:'tf',q:'Am Abend lädt Jonas Freunde ein.',a:true,e:'Am Abend lädt er Freunde ein.'},{t:'order',q:'我明天打電話給你。',w:['Ich','rufe','dich','morgen','an'],alt:[['Ich','rufe','morgen','dich','an']],e:'Ich rufe dich morgen an.'},{t:'match',q:'可分動詞配對',p:[['aufstehen','起床'],['einkaufen','購物'],['anrufen','打電話'],['fernsehen','看電視'],['mitkommen','一起來']],e:''}],
+k12:[{t:'tf',q:'Im Schwimmbad darf man rauchen.',a:false,e:'Man darf hier nicht rauchen.'},{t:'tf',q:'Man muss vor dem Schwimmen duschen.',a:true,e:'Man muss vor dem Schwimmen duschen.'},{t:'tf',q:'Hunde dürfen ins Schwimmbad.',a:false,e:'Hunde dürfen nicht ins Schwimmbad.'},{t:'order',q:'我很會游泳。',w:['Ich','kann','gut','schwimmen'],e:'Ich kann gut schwimmen.'},{t:'match',q:'情態動詞配對',p:[['können','能、會'],['müssen','必須'],['dürfen','可以（被允許）'],['wollen','想要（意志）'],['sollen','應該']],e:''}],
+k13:[{t:'tf',q:'Die Studenten sollen jeden Tag zehn Wörter lernen.',a:true,e:'Lernt jeden Tag zehn Wörter!'},{t:'tf',q:'Im Kurs sollen sie Englisch sprechen.',a:false,e:'Sprecht im Kurs nur Deutsch!'},{t:'tf',q:'Mei soll jeden Tag einen Text lesen.',a:true,e:'Mei, lies jeden Tag einen kurzen Text!'},{t:'order',q:'請您說慢一點！',w:['Sprechen','Sie','bitte','langsam'],alt:[['Sprechen','Sie','langsam','bitte'],['Bitte','sprechen','Sie','langsam']],e:'Sprechen Sie bitte langsam!'},{t:'match',q:'命令式配對',p:[['du / kommen','Komm!'],['ihr / kommen','Kommt!'],['Sie / kommen','Kommen Sie!'],['du / nehmen','Nimm!'],['du / sein','Sei!']],e:''}],
+k14:[{t:'tf',q:'Lena fährt mit der U-Bahn zur Buchhandlung.',a:false,e:'Sie fährt mit dem Bus.'},{t:'tf',q:'Die Buchhandlung ist gegenüber dem Bahnhof.',a:true,e:'Die Buchhandlung ist gegenüber dem Bahnhof.'},{t:'tf',q:'Mei kommt gerade vom Deutschkurs.',a:true,e:'Mei kommt gerade vom Deutschkurs.'},{t:'order',q:'我搭公車去上班。',w:['Ich','fahre','mit','dem','Bus','zur','Arbeit'],e:'Ich fahre mit dem Bus zur Arbeit.'},{t:'match',q:'主格 → 與格',p:[['der','dem'],['die（單數）','der'],['das','dem'],['die（複數）','den'],['eine','einer']],e:''}],
+k15:[{t:'tf',q:'Mei ist im Fitnessstudio.',a:false,e:'Mei ist zu Hause.'},{t:'tf',q:'Frau Koch fliegt nach Spanien.',a:true,e:'Frau Koch fliegt heute nach Spanien.'},{t:'tf',q:'Am Abend gehen alle zu Mei.',a:true,e:'Am Abend gehen alle zu Mei.'},{t:'order',q:'我今晚去看電影。',w:['Ich','gehe','heute','Abend','ins','Kino'],e:'Ich gehe heute Abend ins Kino.'},{t:'match',q:'Wo? 還是 Wohin?',p:[['zu Hause','在家'],['nach Hause','回家'],['im Kino','在電影院'],['ins Kino','去電影院'],['beim Arzt','在醫生那裡']],e:''}],
+k16:[{t:'tf',q:'Berlin gefällt Mei nicht.',a:false,e:'Berlin gefällt mir sehr.'},{t:'tf',q:'Jonas hilft Mei oft.',a:true,e:'Jonas hilft mir oft beim Deutschlernen.'},{t:'tf',q:'Mei besucht ihre Oma im August.',a:true,e:'Im August besuche ich dich in Taiwan!'},{t:'order',q:'你可以幫我嗎？',w:['Kannst','du','mir','helfen'],e:'Kannst du mir helfen?'},{t:'match',q:'代名詞變格配對',p:[['ich（受格）','mich'],['ich（與格）','mir'],['du（受格）','dich'],['er（受格）','ihn'],['er（與格）','ihm']],e:''}],
+k17:[{t:'tf',q:'Jonas spielt Klavier.',a:false,e:'Ich spiele Gitarre, aber ich spiele nicht Klavier.'},{t:'tf',q:'Die Band übt zwei Stunden.',a:true,e:'Zuerst üben wir zwei Stunden.'},{t:'tf',q:'Die Band spielt manchmal in einer Bar.',a:true,e:'Manchmal spielen wir in einem Café oder in einer Bar.'},{t:'order',q:'我很累，但是我還在工作。',w:['Ich','bin','müde,','aber','ich','arbeite','noch'],e:'Ich bin müde, aber ich arbeite noch.'},{t:'match',q:'連接詞配對',p:[['und','和'],['oder','或者'],['aber','但是'],['denn','因為'],['dann','然後']],e:''}],
+k18:[{t:'tf',q:'Mei ist mit dem Auto nach Hamburg gekommen.',a:false,e:'Sie ist mit dem Zug gekommen.'},{t:'tf',q:'Mei hat ein Fischbrötchen gegessen.',a:true,e:'Dann habe ich ein Fischbrötchen gegessen.'},{t:'tf',q:'Am Abend hat sie Sara getroffen.',a:true,e:'Am Abend habe ich meine Freundin Sara getroffen.'},{t:'order',q:'我昨天看了一部電影。',w:['Ich','habe','gestern','einen','Film','gesehen'],e:'Ich habe gestern einen Film gesehen.'},{t:'match',q:'原形 → 完成式',p:[['gehen','ist gegangen'],['essen','hat gegessen'],['kaufen','hat gekauft'],['fahren','ist gefahren'],['besuchen','hat besucht']],e:''}],
+k19:[{t:'tf',q:'Früher war Herr Weber Arzt.',a:false,e:'Früher war er Lehrer.'},{t:'tf',q:'Das Haus war alt.',a:true,e:'Das Haus war alt, aber schön.'},{t:'tf',q:'Heute hat Herr Weber viel Zeit.',a:true,e:'Er hat jetzt viel Zeit.'},{t:'order',q:'我昨天生病了。（以 Gestern 開頭）',w:['Gestern','war','ich','krank'],e:'Gestern war ich krank.'},{t:'match',q:'過去式配對',p:[['ich / sein','war'],['du / sein','warst'],['wir / sein','waren'],['ihr / sein','wart'],['du / haben','hattest']],e:''}],
+k20:[{t:'tf',q:'Jonas isst am liebsten Pizza.',a:false,e:'Am liebsten isst er Pasta.'},{t:'tf',q:'Lena trinkt lieber Tee als Kaffee.',a:true,e:'Lena trinkt lieber Tee als Kaffee.'},{t:'tf',q:'Für Jonas ist die Nudelsuppe zu scharf.',a:true,e:'Für Jonas ist ihre Nudelsuppe zu scharf.'},{t:'order',q:'比起咖啡，我比較喜歡喝茶。',w:['Ich','trinke','lieber','Tee','als','Kaffee'],e:'Ich trinke lieber Tee als Kaffee.'},{t:'match',q:'原級 → 比較級',p:[['gut','besser'],['gern','lieber'],['viel','mehr'],['groß','größer'],['klein','kleiner']],e:''}]
+};
+Object.keys(Q2).forEach(k=>Q[k].push(...Q2[k]));
+/* 單字配對題：每章自動從單字表抽 5 個 */
+Object.keys(EX).forEach(k=>{ const v=EX[k].v.slice().sort(()=>Math.random()-.5).slice(0,5); Q[k].push({t:'match',g:'單字',q:'單字配對：選出中文意思',p:v.map(x=>[x[0],x[1]]),e:''}) });
+
+const CH = [...document.querySelectorAll('.chap')].map(s=>({id:s.id,title:s.dataset.title,de:s.dataset.de}));
+const KS = CH.filter(c=>c.id!=='test');
+const PASS = 0.8;
+let scores = {};
+try{ scores = JSON.parse(localStorage.getItem('a1g-scores')||'{}')||{} }catch(e){ scores = {} }
+function saveScores(){ try{ localStorage.setItem('a1g-scores', JSON.stringify(scores)) }catch(e){} }
+
+/* ---------- TOC ---------- */
+const toc = document.getElementById('toc');
+const groups = {k1:'基礎：句子與動詞',k4:'名詞與冠詞',k8:'格位與所有格',k10:'時間與動詞結構',k14:'與格與地點',k17:'連接、過去與比較'};
+let html = '<h3>章節目錄 Inhalt</h3><ol>';
+KS.forEach((c,i)=>{
+  if(groups[c.id]) html += `<li class="group">${groups[c.id]}</li>`;
+  html += `<li><a href="#${c.id}" data-id="${c.id}"><span class="num">${String(i+1).padStart(2,'0')}</span><span>${c.title}<span class="sub">${c.de}</span></span><span class="badge" data-b="${c.id}">–</span></a></li>`;
+});
+html += `<li class="group">檢測</li><li><a href="#test" data-id="test"><span class="num">✓</span><span>綜合測驗<span class="sub">Abschlusstest</span></span><span class="badge" data-b="test">–</span></a></li></ol>`;
+toc.innerHTML = html;
+
+function refreshBadges(){
+  let passed = 0;
+  CH.forEach(c=>{
+    const b = toc.querySelector(`[data-b="${c.id}"]`); const s = scores[c.id];
+    if(!b) return;
+    b.className = 'badge';
+    if(s){ b.textContent = `${s.best}/${s.total}`; const r = s.best/s.total; if(r>=PASS){ b.classList.add('full'); if(c.id!=='test') passed++; } else b.classList.add('mid'); }
+    else b.textContent = '–';
+  });
+  document.getElementById('pbar').style.width = (passed/KS.length*100)+'%';
+  document.getElementById('ptxt').textContent = `${passed}/${KS.length}`;
+}
+
+/* ---------- speech ---------- */
+const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+let deVoice = null;
+function pickVoice(){ try{ const v = speechSynthesis.getVoices(); deVoice = v.find(x=>/^de(-|_)DE/i.test(x.lang)) || v.find(x=>/^de/i.test(x.lang)) || null }catch(e){} }
+if('speechSynthesis' in window){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+let warned = false;
+const RATES = [[0.7,'慢速'],[1.15,'正常'],[1.35,'快速']];
+let RATE = 1.15;
+try{ const r = parseFloat(localStorage.getItem('a1g-rate')); if(RATES.some(x=>x[0]===r)) RATE = r }catch(e){}
+const SEG = () => `<span class="seg" role="group" aria-label="語速">${RATES.map(([r,l])=>`<button type="button" data-r="${r}" class="${RATE===r?'on':''}" aria-pressed="${RATE===r}">${l}</button>`).join('')}</span>`;
+document.addEventListener('click',e=>{
+  const b = e.target.closest('.seg button'); if(!b) return;
+  RATE = parseFloat(b.dataset.r);
+  try{ localStorage.setItem('a1g-rate', String(RATE)) }catch(err){}
+  document.querySelectorAll('.seg button').forEach(x=>{ const on = parseFloat(x.dataset.r)===RATE; x.classList.toggle('on',on); x.setAttribute('aria-pressed',String(on)) });
+});
+function mkU(text){
+  if(!deVoice) pickVoice();
+  const u = new SpeechSynthesisUtterance(text); u.lang='de-DE'; u.rate=RATE;
+  if(deVoice) u.voice = deVoice;
+  else {
+    /* 沒有德語語音時，中文語音會把德文逐字母唸出；改用英語語音至少能唸成單字 */
+    try{ const en = speechSynthesis.getVoices().find(x=>/^en/i.test(x.lang)); if(en){ u.voice=en; u.lang=en.lang } }catch(e){}
+    if(!warned){ warned=true; const t=document.getElementById('ttsnote'); if(t) t.hidden=false }
+  }
+  return u;
+}
+function speak(text){
+  if(!('speechSynthesis' in window)) return;
+  try{ speechSynthesis.cancel(); speechSynthesis.speak(mkU(text)) }catch(e){}
+}
+document.querySelectorAll('.ex li').forEach(li=>{
+  const de = li.querySelector('.de'); if(!de) return;
+  const b = document.createElement('button'); b.className='say'; b.type='button'; b.innerHTML=ICON;
+  b.setAttribute('aria-label','朗讀：'+de.textContent);
+  b.addEventListener('click',()=>speak(de.textContent.replace(/–/g,',')));
+  li.prepend(b);
+});
+
+/* ---------- vocab, dialog, reading ---------- */
+function speakSeq(list){
+  if(!('speechSynthesis' in window)) return;
+  try{ speechSynthesis.cancel(); list.forEach(t=>speechSynthesis.speak(mkU(t))) }catch(e){}
+}
+function sayBtn(text){ const b=document.createElement('button'); b.type='button'; b.className='say'; b.innerHTML=ICON; b.setAttribute('aria-label','朗讀：'+text); b.addEventListener('click',()=>speak(text)); return b }
+function gcls(w){ const m=/^(der|die|das)\s/.exec(w); if(!m) return ''; if(/\(Pl\.\)/.test(w)) return 'pl'; return {der:'m',die:'f',das:'n'}[m[1]] }
+Object.entries(EX).forEach(([k,d])=>{
+  const sec=document.getElementById(k); const qz=sec&&sec.querySelector('.quiz'); if(!qz) return;
+  const wrap=document.createElement('div');
+  const spk=[...new Set(d.dlg.l.map(x=>x[0]))];
+  wrap.innerHTML = `<h4>本章單字 <span class="h4de">Wortschatz</span></h4>
+  <p class="vnote">名詞顏色：<span class="chip m">der</span> <span class="chip f">die</span> <span class="chip n">das</span> <span class="chip pl">複數</span>，逗號後是複數詞尾。點喇叭聽例句。</p>
+  <div class="vocab">${d.v.map(v=>`<div class="vc"><div class="vw ${gcls(v[0])}">${esc(v[0])}</div><div class="vz">${esc(v[1])}</div><div class="vex" data-de="${esc(v[2])}"><span class="vde">${esc(v[2])}</span><span class="vzh">${esc(v[3])}</span></div></div>`).join('')}</div>
+  <h4>情境對話 <span class="h4de">Dialog</span></h4>
+  <div class="dlg"><div class="dhead"><b>${esc(d.dlg.t)}</b><span class="dzh">${esc(d.dlg.z)}</span><div class="dbtns">${SEG()}<button type="button" class="btn sm play">▶ 播放整段</button><button type="button" class="btn ghost sm tr">隱藏翻譯</button></div></div>
+  <ol class="dl">${d.dlg.l.map(x=>`<li class="s${spk.indexOf(x[0])%2}"><span class="who">${esc(x[0])}</span><div class="bub"><span class="de">${esc(x[1])}</span><span class="zh">${esc(x[2])}</span></div></li>`).join('')}</ol></div>
+  <h4>短文閱讀 <span class="h4de">Lesetext</span></h4>
+  <div class="read"><div class="dhead"><b>${esc(d.rd.t)}</b><span class="dzh">${esc(d.rd.z)}</span><div class="dbtns">${SEG()}<button type="button" class="btn sm play">▶ 朗讀全文</button><button type="button" class="btn ghost sm tr">顯示翻譯</button></div></div>
+  <p class="rde">${esc(d.rd.de)}</p><p class="rzh" hidden>${esc(d.rd.zh)}</p><p class="rnote">讀完後，下方測驗有「閱讀理解」題（richtig 正確／falsch 錯誤）。</p></div>`;
+  wrap.querySelectorAll('.vex').forEach(x=>x.prepend(sayBtn(x.dataset.de)));
+  wrap.querySelectorAll('.dl li').forEach((li,i)=>li.prepend(sayBtn(d.dlg.l[i][1])));
+  const dl=wrap.querySelector('.dlg'), rd=wrap.querySelector('.read');
+  dl.querySelector('.play').addEventListener('click',()=>speakSeq(d.dlg.l.map(x=>x[1])));
+  dl.querySelector('.tr').addEventListener('click',e=>{ const ol=dl.querySelector('.dl'); const h=ol.classList.toggle('hidezh'); e.target.textContent=h?'顯示翻譯':'隱藏翻譯' });
+  rd.querySelector('.play').addEventListener('click',()=>speak(d.rd.de));
+  rd.querySelector('.tr').addEventListener('click',e=>{ const z=rd.querySelector('.rzh'); z.hidden=!z.hidden; e.target.textContent=z.hidden?'顯示翻譯':'隱藏翻譯' });
+  while(wrap.firstChild) qz.before(wrap.firstChild);
+});
+
+/* ---------- quiz ---------- */
+const norm = s => s.trim().replace(/\s+/g,' ').replace(/[!.?]+$/,'').toLowerCase();
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a }
+function buildTest(){
+  const all = []; KS.forEach((c,i)=>Q[c.id].forEach(q=>{ if(q.t!=='tf') all.push({...q,src:i+1}) }));
+  return shuffle(all).slice(0,20);
+}
+
+function renderQuiz(box){
+  const id = box.dataset.quiz;
+  const list = id==='test' ? buildTest() : Q[id];
+  const st = {answered:0, right:0, total:list.length};
+  const best = scores[id];
+  box.innerHTML = `<div class="quiz-head"><h4>${id==='test'?'綜合測驗':'本章測驗'}（${list.length} 題）</h4><span class="best">${best?`最佳紀錄 ${best.best}/${best.total}`:'尚未作答'}</span></div>
+  <ol class="qs"></ol>
+  <div class="result"><div class="score"></div><div class="msg"></div><button type="button" class="btn ghost redo">${id==='test'?'重新出題':'重做一次'}</button></div>`;
+  const ol = box.querySelector('.qs');
+  list.forEach((q0,qi)=>{
+    const q = q0.t==='tf' ? {...q0,t:'mc',c:['richtig（正確）','falsch（錯誤）'],a:q0.a?0:1} : q0;
+    const li = document.createElement('li'); li.className='q';
+    const tg = q0.g || {tf:'閱讀理解',order:'句子重組',match:'配對'}[q0.t];
+    const src = (tg?`<span class="qtag">${tg}</span>`:'') + (q.src ? ` <span class="qh">· 第 ${q.src} 章</span>` : '');
+    const hint = q.h ? ` <span class="qh">（${q.h}）</span>` : '';
+    li.innerHTML = `<div class="qt"><span>${esc(q.q)}${hint}${src}</span></div>`;
+    const fb = document.createElement('div'); fb.className='fb';
+    if(q.t==='mc'){
+      const wrap = document.createElement('div'); wrap.className='opts';
+      q.c.forEach((c,ci)=>{
+        const b = document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=c;
+        b.addEventListener('click',()=>{
+          const ok = ci===q.a;
+          wrap.querySelectorAll('.opt').forEach((x,xi)=>{ x.disabled=true; if(xi===q.a) x.classList.add('right') });
+          if(!ok) b.classList.add('wrong');
+          done(ok, fb, q, q.c[q.a]);
+        });
+        wrap.appendChild(b);
+      });
+      li.appendChild(wrap);
+    } else if(q.t==='order'){
+      const bx = document.createElement('div'); bx.className='ord';
+      const line = document.createElement('div'); line.className='line';
+      const bank = document.createElement('div'); bank.className='bank';
+      const ctr = document.createElement('div'); ctr.className='ctr';
+      const chk = document.createElement('button'); chk.type='button'; chk.className='btn'; chk.textContent='檢查'; chk.disabled=true;
+      let pick = shuffle(q.w), n=0; while(pick.join(' ')===q.w.join(' ') && n++<10) pick = shuffle(q.w);
+      pick.forEach(w=>{ const c=document.createElement('button'); c.type='button'; c.className='chipw'; c.textContent=w;
+        c.addEventListener('click',()=>{ (c.parentNode===bank?line:bank).appendChild(c); chk.disabled = bank.children.length>0 }); bank.appendChild(c) });
+      chk.addEventListener('click',()=>{
+        const got=[...line.children].map(x=>x.textContent).join(' ');
+        const ok=[q.w,...(q.alt||[])].some(a=>norm(a.join(' '))===norm(got));
+        bx.querySelectorAll('.chipw').forEach(x=>x.disabled=true); chk.disabled=true; line.classList.add(ok?'right':'wrong');
+        done(ok, fb, q, q.w.join(' '));
+      });
+      ctr.appendChild(chk); bx.append(line,bank,ctr); li.appendChild(bx);
+    } else if(q.t==='match'){
+      const bx = document.createElement('div'); bx.className='mt';
+      const opts = shuffle([...new Set(q.p.map(p=>p[1]))]);
+      const sels = q.p.map((p,pi)=>{ const row=document.createElement('div'); row.className='mrow';
+        const l=document.createElement('label'); l.className='ml'; l.textContent=p[0]; const s=document.createElement('select'); s.id=`mt-${id}-${qi}-${pi}`; l.htmlFor=s.id;
+        s.innerHTML='<option value="">選擇…</option>'+opts.map(o=>`<option>${esc(o)}</option>`).join('');
+        row.append(l,s); bx.appendChild(row); return s });
+      const ctr=document.createElement('div'); ctr.className='ctr';
+      const chk=document.createElement('button'); chk.type='button'; chk.className='btn'; chk.textContent='檢查'; chk.disabled=true;
+      sels.forEach(s=>s.addEventListener('change',()=>{ chk.disabled = sels.some(x=>!x.value) }));
+      chk.addEventListener('click',()=>{ let ok=true;
+        sels.forEach((s,i)=>{ const r=s.value===q.p[i][1]; s.classList.add(r?'right':'wrong'); s.disabled=true; if(!r) ok=false });
+        chk.disabled=true; done(ok, fb, q, q.p.map(p=>p[0]+' → '+p[1]).join('｜'));
+      });
+      ctr.appendChild(chk); bx.appendChild(ctr); li.appendChild(bx);
+    } else {
+      const wrap = document.createElement('form'); wrap.className='fill';
+      const inp = document.createElement('input'); inp.type='text'; inp.id=`in-${id}-${qi}`; inp.autocomplete='off'; inp.spellcheck=false; inp.setAttribute('autocapitalize','off'); inp.placeholder='輸入答案';
+      inp.setAttribute('aria-label','第 '+(qi+1)+' 題答案');
+      const b = document.createElement('button'); b.type='submit'; b.className='btn'; b.textContent='檢查';
+      wrap.append(inp,b);
+      wrap.addEventListener('submit',ev=>{
+        ev.preventDefault();
+        if(!inp.value.trim()){ inp.focus(); return }
+        const ok = q.a.some(x=>norm(x)===norm(inp.value));
+        inp.disabled=true; b.disabled=true; inp.classList.add(ok?'right':'wrong');
+        done(ok, fb, q, q.a[0]);
+      });
+      li.appendChild(wrap);
+    }
+    li.appendChild(fb);
+    ol.appendChild(li);
+  });
+  function done(ok, fb, q, ans){
+    st.answered++; if(ok) st.right++;
+    fb.className = 'fb show '+(ok?'ok':'no');
+    fb.innerHTML = `<span class="tag">${ok?'正確':'答案：'+esc(ans)}</span>${esc(q.e||'')}`;
+    if(st.answered===st.total) finish();
+  }
+  function finish(){
+    const r = box.querySelector('.result'); r.classList.add('show');
+    const pct = Math.round(st.right/st.total*100);
+    r.querySelector('.score').textContent = `${st.right}/${st.total}`;
+    r.querySelector('.msg').textContent = pct===100 ? '全對！這一章你已經完全掌握了。'
+      : pct>=PASS*100 ? `${pct}%，已達掌握標準。看一下錯的題目解說就可以往下一章。`
+      : pct>=50 ? `${pct}%，還差一點。建議回頭再看一次表格和例句，然後重做。`
+      : `${pct}%，這章再讀一次會比較穩。先看規則表，再大聲念例句。`;
+    const prev = scores[id];
+    if(!prev || st.right>prev.best){ scores[id] = {best:st.right,total:st.total}; saveScores(); refreshBadges(); }
+    box.querySelector('.best').textContent = `最佳紀錄 ${scores[id].best}/${scores[id].total}`;
+  }
+  box.querySelector('.redo').addEventListener('click',()=>{ renderQuiz(box); box.scrollIntoView({behavior:'smooth',block:'start'}) });
+}
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])) }
+document.querySelectorAll('.quiz').forEach(renderQuiz);
+
+/* ---------- jump to quiz ---------- */
+document.querySelectorAll('.chap').forEach(s=>{
+  const qz = s.querySelector('.quiz'); const sub = s.querySelector('.de-sub'); if(!qz||!sub||s.id==='test') return;
+  const n = qz.querySelectorAll('.q').length;
+  const b = document.createElement('button'); b.type='button'; b.className='jump';
+  b.innerHTML = `<span>本章測驗</span><b>${n} 題</b><span aria-hidden="true">↓</span>`;
+  b.addEventListener('click',()=>qz.scrollIntoView({behavior:'smooth',block:'start'}));
+  sub.after(b);
+});
+
+/* ---------- pager ---------- */
+document.querySelectorAll('.chap').forEach((s,i,arr)=>{
+  const p = document.createElement('div'); p.className='pager';
+  const prev = arr[i-1], next = arr[i+1];
+  if(prev) p.innerHTML += `<a href="#${prev.id}"><small>← 上一章</small>${prev.dataset.title}</a>`;
+  if(next) p.innerHTML += `<a class="next" href="#${next.id}"><small>下一章 →</small>${next.dataset.title}</a>`;
+  s.appendChild(p);
+});
+
+/* ---------- routing ---------- */
+const tocbtn = document.getElementById('tocbtn');
+function show(){
+  const h = location.hash.slice(1);
+  const id = CH.some(c=>c.id===h) ? h : 'k1';
+  document.querySelectorAll('.chap').forEach(s=>s.hidden = s.id!==id);
+  toc.querySelectorAll('a').forEach(a=>a.classList.toggle('on', a.dataset.id===id));
+  toc.classList.remove('open'); tocbtn.setAttribute('aria-expanded','false');
+  window.scrollTo(0,0);
+  try{ speechSynthesis.cancel() }catch(e){}
+}
+window.addEventListener('hashchange',show);
+tocbtn.addEventListener('click',()=>{ const o = toc.classList.toggle('open'); tocbtn.setAttribute('aria-expanded',String(o)) });
+refreshBadges(); show();
+</script>
+
+</body>
+</html>

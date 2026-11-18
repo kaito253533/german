@@ -225,6 +225,10 @@ button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid var(
 @media (max-width:480px){ .prog span.lbl{display:none} .brand .full{display:none} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
+.rate{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.tocbtn,.themebtn,.seg button{white-space:nowrap;flex:none}
+@media (max-width:640px){.rate .rlbl{display:none}.prog{display:none}.top{gap:8px}.seg button{padding:4px 8px}.themebtn,.tocbtn{padding:4px 10px}}
+@media (max-width:420px){.brand{font-size:1rem;gap:6px}.seg button{padding:4px 7px}.top{gap:6px}}
 .themebtn{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:8px;padding:4px 12px;cursor:pointer}
 .themebtn:hover{color:var(--ink);border-color:var(--ink)}
 /* ===== Clean & Focus theme: soft off-white, one sans family, calm green accent, minimal ornament ===== */
@@ -270,6 +274,7 @@ mark,.hl{background:none;border-bottom:2px solid var(--accent);padding:0 1px}
   <button class="tocbtn" id="tocbtn" aria-expanded="false" aria-controls="toc">目錄</button>
   <div class="brand"><a href="../" style="color:inherit;text-decoration:none" title="回到德語首頁">Deutsch</a><span class="lvl">A1</span><span class="full">教學手冊</span></div>
   <div class="spacer"></div>
+  <span class="rate" id="rateslot"></span>
   <button type="button" class="themebtn" id="themebtn" onclick="__toggleTheme()" aria-label="切換深淺色">深色</button>
   <div class="prog" title="已通過測驗的章節（≥80%）"><span class="lbl">已掌握</span><div class="bar"><i id="pbar"></i></div><span id="ptxt">0/20</span></div>
 </header>
@@ -1345,10 +1350,11 @@ let deVoice = null;
 function pickVoice(){ try{ const v = speechSynthesis.getVoices(); deVoice = v.find(x=>/^de(-|_)DE/i.test(x.lang)) || v.find(x=>/^de/i.test(x.lang)) || null }catch(e){} }
 if('speechSynthesis' in window){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 let warned = false;
-const RATES = [[0.7,'慢速'],[1.15,'正常'],[1.35,'快速']];
-let RATE = 1.15;
+const RATES = [[0.8,'慢速'],[1,'正常'],[1.15,'快速']];
+let RATE = 1;
 try{ const r = parseFloat(localStorage.getItem('a1g-rate')); if(RATES.some(x=>x[0]===r)) RATE = r }catch(e){}
 const SEG = () => `<span class="seg" role="group" aria-label="語速">${RATES.map(([r,l])=>`<button type="button" data-r="${r}" class="${RATE===r?'on':''}" aria-pressed="${RATE===r}">${l}</button>`).join('')}</span>`;
+{ const slot=document.getElementById('rateslot'); if(slot) slot.innerHTML='<span class="rlbl">語速</span>'+SEG(); }
 document.addEventListener('click',e=>{
   const b = e.target.closest('.seg button'); if(!b) return;
   RATE = parseFloat(b.dataset.r);
@@ -1393,10 +1399,10 @@ Object.entries(EX).forEach(([k,d])=>{
   <p class="vnote">名詞顏色：<span class="chip m">der</span> <span class="chip f">die</span> <span class="chip n">das</span> <span class="chip pl">複數</span>，逗號後是複數詞尾。點喇叭聽例句。</p>
   <div class="vocab">${d.v.map(v=>`<div class="vc"><div class="vw ${gcls(v[0])}">${esc(v[0])}</div><div class="vz">${esc(v[1])}</div><div class="vex" data-de="${esc(v[2])}"><span class="vde">${esc(v[2])}</span><span class="vzh">${esc(v[3])}</span></div></div>`).join('')}</div>
   <h4>情境對話 <span class="h4de">Dialog</span></h4>
-  <div class="dlg"><div class="dhead"><b>${esc(d.dlg.t)}</b><span class="dzh">${esc(d.dlg.z)}</span><div class="dbtns">${SEG()}<button type="button" class="btn sm play">▶ 播放整段</button><button type="button" class="btn ghost sm tr">隱藏翻譯</button></div></div>
+  <div class="dlg"><div class="dhead"><b>${esc(d.dlg.t)}</b><span class="dzh">${esc(d.dlg.z)}</span><div class="dbtns"><button type="button" class="btn sm play">▶ 播放整段</button><button type="button" class="btn ghost sm tr">隱藏翻譯</button></div></div>
   <ol class="dl">${d.dlg.l.map(x=>`<li class="s${spk.indexOf(x[0])%2}"><span class="who">${esc(x[0])}</span><div class="bub"><span class="de">${esc(x[1])}</span><span class="zh">${esc(x[2])}</span></div></li>`).join('')}</ol></div>
   <h4>短文閱讀 <span class="h4de">Lesetext</span></h4>
-  <div class="read"><div class="dhead"><b>${esc(d.rd.t)}</b><span class="dzh">${esc(d.rd.z)}</span><div class="dbtns">${SEG()}<button type="button" class="btn sm play">▶ 朗讀全文</button><button type="button" class="btn ghost sm tr">顯示翻譯</button></div></div>
+  <div class="read"><div class="dhead"><b>${esc(d.rd.t)}</b><span class="dzh">${esc(d.rd.z)}</span><div class="dbtns"><button type="button" class="btn sm play">▶ 朗讀全文</button><button type="button" class="btn ghost sm tr">顯示翻譯</button></div></div>
   <p class="rde">${esc(d.rd.de)}</p><p class="rzh" hidden>${esc(d.rd.zh)}</p><p class="rnote">讀完後，下方測驗有「閱讀理解」題（richtig 正確／falsch 錯誤）。</p></div>`;
   wrap.querySelectorAll('.vex').forEach(x=>x.prepend(sayBtn(x.dataset.de)));
   wrap.querySelectorAll('.dl li').forEach((li,i)=>li.prepend(sayBtn(d.dlg.l[i][1])));
